@@ -113,31 +113,31 @@
 				</success>
 			</fields>
 		</cleanup>
-                <files>
-                    <label>Write Files</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>10</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <comment>
-                        <![CDATA[
-			<p>To write to your .htaccess and robots.txt below, you must set permissions for each file to 777</p>
-			]]>
-                    </comment>
-                    <fields>
-                        <htaccess translate="label">
-                                <label>.htaccess</label>
-				  <frontend_type>textarea</frontend_type>
-				  <sort_order>1</sort_order>
-				  <show_in_default>1</show_in_default>
-                        </htaccess>
-                        <robots translate="label">
-                                <label>robots.txt</label>
-				  <frontend_type>textarea</frontend_type>
-				  <sort_order>2</sort_order>
-				  <show_in_default>1</show_in_default>
-                        </robots>
-                    </fields>
-                </files>
+        <files>
+            <label>Write Files</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <comment>
+                <![CDATA[
+	<p>To write to your .htaccess and robots.txt below, you must set permissions for each file to 777</p>
+	]]>
+            </comment>
+            <fields>
+                <htaccess translate="label">
+                        <label>.htaccess</label>
+		  <frontend_type>textarea</frontend_type>
+		  <sort_order>1</sort_order>
+		  <show_in_default>1</show_in_default>
+                </htaccess>
+                <robots translate="label">
+                        <label>robots.txt</label>
+		  <frontend_type>textarea</frontend_type>
+		  <sort_order>2</sort_order>
+		  <show_in_default>1</show_in_default>
+                </robots>
+            </fields>
+        </files>
       </groups>
     </creareseocore>
   </sections>
