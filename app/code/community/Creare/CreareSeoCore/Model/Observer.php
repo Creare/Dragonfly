@@ -37,10 +37,13 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
         /* Replaces category name with heading on category pages */
         public function seoHeading($observer)
         {
-            $category = $observer->getEvent()->getCategory();
-            
-            if ($category->getData('creareseo_heading')) {
-                $category->setName($category->getCreareseoHeading());
+            if(Mage::app()->getFrontController()->getAction()->getFullActionName() == 'catalog_category_view')
+            {
+                $category = $observer->getEvent()->getCategory();
+
+                if ($category->getData('creareseo_heading')) {
+                    $category->setName($category->getCreareseoHeading());
+                }
             }
         }
 }
