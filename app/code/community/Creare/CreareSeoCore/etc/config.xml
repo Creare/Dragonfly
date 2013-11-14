@@ -96,4 +96,17 @@
         </catalog_category_load_after>
     </events>
   </frontend>
+  <adminhtml>
+      <events>
+          <admin_system_config_changed_section_creareseocore>
+            <observers>
+            <creareseo_filewrite>
+              <type>model</type>
+              <class>creareseocore/observer</class>
+              <method>writeFile</method>
+            </creareseo_filewrite>
+          </observers>
+          </admin_system_config_changed_section_creareseocore>
+      </events>
+  </adminhtml>
 </config>
