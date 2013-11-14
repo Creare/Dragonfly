@@ -7,11 +7,14 @@
 				<?php echo $this->getCreareCMSPages(); // prints out our cms page ?>
 			<?php endif; ?>
 			<?php if(Mage::helper('creareseositemap')->showXMLSitemap()): ?>
-		        <?php $sitemap = Mage::getModel('sitemap/sitemap')->load(1); ?>
-		        <?php $sitemapfilename = $sitemap->getSitemapFilename(); ?>
-		        <?php if($sitemapfilename != ""): ?>
+		        <?php 
+		        $sitemap = Mage::getModel('sitemap/sitemap')->getCollection();
+		        foreach($sitemaps as $sitemap):
+		        $sitemapfilename = $sitemap->getSitemapFilename();
+		        if($sitemapfilename != ""): ?>
 					<li><a href="<?php echo Mage::getBaseUrl().$sitemapfilename; ?>" title="XML Sitemap">XML Sitemap</a></li>
-		        <?php endif; ?>
+		        <?php endif;
+		        endforeach; ?>
 	    	<?php endif; ?>
 		</ul>
 	<?php endif; ?>
