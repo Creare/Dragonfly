@@ -21,11 +21,6 @@
           <show_in_default>1</show_in_default>
           <show_in_website>1</show_in_website>
           <show_in_store>1</show_in_store>
-          <comment>
-            <![CDATA[
-			<p>A default SEO check will look through your Magento configuration to ensure that all the default SEO options that come with Magento are being used.</p>
-			]]>
-          </comment>
           <fields>
           	<metakw translate="label">
 			  <label>Disable Meta Keywords Tag?</label>
