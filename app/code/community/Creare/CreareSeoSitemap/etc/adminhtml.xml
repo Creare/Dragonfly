@@ -7,16 +7,20 @@
       <admin>
         <children>
           <system>
-            <children>
-              <config>
-                <children>
-                  <creareseositemap>
-                    <title>Creare Group - Sitemap</title>
-                  </creareseositemap>
-                </children>
-              </config>
-            </children>
-          </system>
+              <children>
+                <config>
+                  <children>
+                    <crearegroup>
+                      <children>
+                        <creareseositemap>
+                          <title>Creare SEO Sitemap</title>
+                        </creareseositemap>
+                      </children>
+                    </crearegroup>
+                  </children>
+                </config>
+              </children>
+            </system>
         </children>
       </admin>
     </resources>

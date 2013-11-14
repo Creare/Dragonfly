@@ -16,13 +16,13 @@
   </adminhtml>
   <admin>
     <routers>
-      <adminmodule>
-        <use>admin</use>
+      <adminhtml>
         <args>
-          <module>Creare_CreareSeoCore</module>
-          <frontName>creareseo</frontName>
+            <modules>
+                <creareseo before="Mage_Adminhtml">Creare_CreareSeoCore_Adminhtml</creareseo>
+            </modules>
         </args>
-      </adminmodule>
+      </adminhtml>
     </routers>
   </admin>
   <global>

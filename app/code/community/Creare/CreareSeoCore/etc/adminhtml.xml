@@ -1,4 +1,27 @@
-<adminhtml>
+<config>
+  <menu>
+    <creareseo module="creareseocore">
+      <title>Creare SEO</title>
+      <sort_order>71</sort_order>               
+      <children>
+        <defaultseo module="creareseocore">
+          <title>Default SEO Check</title>
+          <sort_order>0</sort_order>
+          <action>adminhtml/creareseo/check</action>
+        </defaultseo>
+        <sitemap module="creareseocore">
+          <title>Sitemap Settings</title>
+          <sort_order>0</sort_order>
+          <action>adminhtml/system_config/edit/section/creareseositemap/</action>
+        </sitemap>
+        <coresettings module="creareseocore">
+          <title>Core Settings</title>
+          <sort_order>0</sort_order>
+          <action>adminhtml/system_config/edit/section/creareseocore/</action>
+        </coresettings>
+      </children>
+    </creareseo>
+  </menu>
 	<acl>
       <resources>
         <all>
@@ -6,13 +29,24 @@
         </all>
         <admin>
           <children>
+            <creareseo>
+              <children>
+                <defaultseo>
+                  <title>Creare SEO - Default SEO Check</title>
+                </defaultseo>
+              </children>
+            </creareseo>
             <system>
               <children>
                 <config>
                   <children>
-                    <creareseocore>
-                      <title>CreareGroup - Cleanup</title>
-                    </creareseocore>
+                    <crearegroup>
+                      <children>
+                        <creareseocore>
+                          <title>Creare SEO Core</title>
+                        </creareseocore>
+                      </children>
+                    </crearegroup>
                   </children>
                 </config>
               </children>
@@ -21,4 +55,4 @@
         </admin>
       </resources>
     </acl>
-</adminhtml>
+</config>
