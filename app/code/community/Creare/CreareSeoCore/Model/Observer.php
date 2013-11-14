@@ -37,6 +37,7 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
         /* Modify XML Sitemap data before save */
         public function applySitemapChanges($observer)
         {
+            echo "TEST";
             Mage::log('My log entry', null, 'xmlsitemap.log');
         }
 

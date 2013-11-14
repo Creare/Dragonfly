@@ -77,11 +77,11 @@
         </http_response_send_before>
         <creareseo_xml_sitemap_save_before>
           <observers>
-            <xml_sitemap_observe>
+            <xmlsitemap_observe>
               <type>singleton</type>
               <class>creareseocore/observer</class>
               <method>applySitemapChanges</method>
-            </xml_sitemap_observe>
+            </xmlsitemap_observe>
           </observers>
         </creareseo_xml_sitemap_save_before>
     </events>
