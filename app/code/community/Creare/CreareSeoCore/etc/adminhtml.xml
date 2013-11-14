@@ -32,7 +32,7 @@
             <creareseo>
               <children>
                 <defaultseo>
-                  <title>Creare SEO - Default SEO Check</title>
+                  <title>CreareSEO - Default SEO Check</title>
                 </defaultseo>
               </children>
             </creareseo>
@@ -43,7 +43,7 @@
                     <crearegroup>
                       <children>
                         <creareseocore>
-                          <title>Creare SEO Core</title>
+                          <title>CreareSEO Core</title>
                         </creareseocore>
                       </children>
                     </crearegroup>
