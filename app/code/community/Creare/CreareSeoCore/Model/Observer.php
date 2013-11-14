@@ -46,4 +46,9 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
                 }
             }
         }
+        
+        protected function writeFile($observer)
+        {
+            //$this->getRequest()->getPost('config_state')
+        }
 }
