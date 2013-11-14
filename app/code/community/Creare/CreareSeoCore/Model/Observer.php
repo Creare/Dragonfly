@@ -34,10 +34,13 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
 		}
 	}
         
-        /* Modify XML Sitemap data before save */
-        public function applySitemapChanges($observer)
+        /* Replaces category name with heading on category pages */
+        public function seoHeading($observer)
         {
-            die("TEST");
+            $category = $observer->getEvent()->getCategory();
+            
+            if ($category->getData('creareseo_heading')) {
+                $category->setName($category->getCreareseoHeading());
+            }
         }
-
 }

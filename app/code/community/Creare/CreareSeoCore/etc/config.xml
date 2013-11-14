@@ -42,6 +42,16 @@
         <class>Creare_CreareSeoCore_Helper</class>
       </creareseocore>
     </helpers>
+    <resources>
+        <creareseo_setup>
+            <setup>
+                <module>Creare_CreareSeoCore</module>
+            </setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </creareseo_setup>
+    </resources>
   </global>
   <crontab>
     <jobs>
@@ -75,15 +85,15 @@
             </creareseo_keyword>
           </observers>
         </http_response_send_before>
-        <creareseo_xml_sitemap_save_before>
+        <catalog_category_load_after>
           <observers>
-            <xmlsitemap_observe>
-              <type>singleton</type>
+            <creareseo_heading>
+              <type>model</type>
               <class>creareseocore/observer</class>
-              <method>applySitemapChanges</method>
-            </xmlsitemap_observe>
+              <method>seoHeading</method>
+            </creareseo_heading>
           </observers>
-        </creareseo_xml_sitemap_save_before>
+        </catalog_category_load_after>
     </events>
   </frontend>
 </config>
