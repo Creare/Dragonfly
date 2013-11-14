@@ -31,6 +31,11 @@
         <class>Creare_CreareSeoCore_Model</class>
         <resourceModel>cleanup_mysql4</resourceModel>
       </creareseocore>
+      <sitemap>
+          <rewrite>
+              <sitemap>Creare_CreareSeoCore_Model_Sitemap_Sitemap</sitemap>
+          </rewrite>
+      </sitemap>
     </models>
     <helpers>
       <creareseocore>
@@ -70,6 +75,15 @@
             </creareseo_keyword>
           </observers>
         </http_response_send_before>
+        <creareseo_xml_sitemap_save_before>
+          <observers>
+            <xml_sitemap_observe>
+              <type>singleton</type>
+              <class>creareseocore/observer</class>
+              <method>applySitemapChanges</method>
+            </xml_sitemap_observe>
+          </observers>
+        </creareseo_xml_sitemap_save_before>
     </events>
   </frontend>
 </config>
