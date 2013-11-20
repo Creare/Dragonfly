@@ -26,6 +26,11 @@
     </routers>
   </admin>
   <global>
+    <blocks>
+      <creareseocore>
+        <class>Creare_CreareSeoCore_Block</class>
+      </creareseocore>
+    </blocks>
     <models>
       <creareseocore>
         <class>Creare_CreareSeoCore_Model</class>

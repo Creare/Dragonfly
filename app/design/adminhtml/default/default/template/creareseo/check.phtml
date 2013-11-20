@@ -1,0 +1,48 @@
+<div class="content-header">
+	<h3 class="icon-head">Default SEO Check</h3>
+</div>
+
+<p>The default SEO options below are simply <strong>reccommendations for good SEO practice</strong>. There may occur times when the configuration detailed below may not suit your particular store.</p>
+
+<div class="content-header">
+	<h4>Configuration Settings</h4>
+</div>
+
+<div class="entry-edit">
+	<ul class="messages">
+		<?php if(!Mage::getStoreConfig('web/seo/use_rewrites')): ?>
+		<li class="error-msg"><span>You should enable web server rewrites, please set Search Engines Optimisation > Use Web Server Rewrites to Yes <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/web') ?>">Go fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Web Server Rewrites are enabled correctly</span></li>
+		<?php endif; ?>
+		<?php if(!Mage::getStoreConfig('catalog/seo/category_canonical_tag')): ?>
+		<li class="error-msg"><span>You should enable category canonical tags, please set Search Engine Optimisations > Use Canonical Link Meta Tag For Categories to Yes <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/catalog') ?>">Go fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Category Canonical Tags have been setup correctly</span></li>
+		<?php endif; ?>
+		<?php if(!Mage::getStoreConfig('catalog/seo/product_canonical_tag')): ?>
+		<li class="error-msg"><span>You should enable product canonical tags, please set Search Engine Optimisations > Use Canonical Link Meta Tag For Products to Yes <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/catalog') ?>">Go fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Product Canonical Tags have been configured correctly</span></li>
+		<?php endif; ?>
+		<?php if(Mage::getStoreConfig('catalog/seo/product_use_categories')): ?>
+		<li class="error-msg"><span>Products should only exist under the canonical tag, please set Search Engine Optimisations > Use Categories Path for Product URLs <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/catalog') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Product URL's only exist under the canonical tag</span></li>
+		<?php endif; ?>
+	</ul>
+</div>
+
+<div class="content-header">
+	<h4>Default Values</h4>
+</div>
+
+<div class="entry-edit">
+	<ul class="messages">
+		<?php if(Mage::getStoreConfig('catalog/seo/product_use_categories')): ?>
+		<li class="error-msg"><span>Products should only exist under the canonical tag, please set Search Engine Optimisations > Use Categories Path for Product URLs <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/catalog') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Product URL's only exist under the canonical tag</span></li>
+		<?php endif; ?>
+	</ul>
+</div>

@@ -3,6 +3,12 @@
 	<default>
 		<reference name="head">
 			<action method="addJs"><script>creareseo/creareseo_admin.js</script></action>
+			<block type="core/template" name="checko" template="creareseo/check.phtml" />
 		</reference>
 	</default>
+	<adminhtml_creareseo_check>
+		<reference name="content">
+			<block type="core/template" name="creareseocore.check" template="creareseo/check.phtml" />
+		</reference>
+	</adminhtml_creareseo_check>
 </layout>
