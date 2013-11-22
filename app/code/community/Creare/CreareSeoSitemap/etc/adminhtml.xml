@@ -9,15 +9,11 @@
           <system>
               <children>
                 <config>
-                  <children>
-                    <crearegroup>
-                      <children>
-                        <creareseositemap>
-                          <title>Creare SEO Sitemap</title>
-                        </creareseositemap>
-                      </children>
-                    </crearegroup>
-                  </children>
+                    <children>
+                      <creareseositemap>
+                        <title>Creare SEO Sitemap</title>
+                      </creareseositemap>
+                    </children>
                 </config>
               </children>
             </system>

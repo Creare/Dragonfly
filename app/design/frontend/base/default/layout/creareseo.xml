@@ -1,0 +1,15 @@
+<layout>
+	<default>
+		<!-- default twitter card stuff -->
+	</default>
+
+	<catalog_product_view>
+		<reference name="head">
+			<block type="catalog/product_view" name="creareseo.social">
+				<action method="setTemplate" ifconfig="creareseo/social/enabled">
+		            <template>creareseo/social/social.phtml</template>
+		        </action>
+	        </block>			
+		</reference>
+	</catalog_product_view>
+</layout>
