@@ -113,6 +113,44 @@
 				</success>
 			</fields>
 		</cleanup>
+		<social>
+			<label>Twitter Cards and Open Graph</label>
+			<frontend_type>text</frontend_type>
+			<sort_order>20</sort_order>
+			<show_in_default>1</show_in_default>
+			<comment>
+				<![CDATA[
+				<p>Enable or disable twitter product cards and open graph schema.</p>
+				]]>
+			</comment>
+			<fields>
+				<enabled>
+				  <label>Show Social Schema?</label>
+				  <frontend_type>select</frontend_type>
+				  <source_model>adminhtml/system_config_source_yesno</source_model>
+				  <sort_order>10</sort_order>
+				  <show_in_default>1</show_in_default>
+				  <show_in_website>1</show_in_website>
+				  <show_in_store>1</show_in_store>
+				</enabled>
+				<twittersite>
+				  <label>Twitter Site @</label>
+				  <frontend_type>text</frontend_type>
+				  <sort_order>10</sort_order>
+				  <show_in_default>1</show_in_default>
+				  <show_in_website>1</show_in_website>
+				  <show_in_store>1</show_in_store>
+				</twittersite>
+				<twittercreator>
+				  <label>Twitter Creator @</label>
+				  <frontend_type>text</frontend_type>
+				  <sort_order>10</sort_order>
+				  <show_in_default>1</show_in_default>
+				  <show_in_website>1</show_in_website>
+				  <show_in_store>1</show_in_store>
+				</twittercreator>
+			</fields>
+		</social>
         <files>
             <label>Write Files</label>
             <frontend_type>text</frontend_type>
@@ -120,7 +158,9 @@
             <show_in_default>1</show_in_default>
             <comment>
                 <![CDATA[
-	<p>To write to your .htaccess and robots.txt below, you must set permissions for each file to 777</p>
+	<p style="color:red; background-color:#fff; padding:10px; border:1px solid #e7e7e7"><strong>IMPORTANT!</strong><br />To write to your .htaccess and robots.txt below, you must set permissions for each file to at least 644. 
+Overwriting your .htaccess can cause problems with your website, so only alter if you know what you're doing.</p>
+
 	]]>
             </comment>
             <fields>
