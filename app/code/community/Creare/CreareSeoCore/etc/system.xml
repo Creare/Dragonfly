@@ -160,7 +160,6 @@
                 <![CDATA[
 	<p style="color:red; background-color:#fff; padding:10px; border:1px solid #e7e7e7"><strong>IMPORTANT!</strong><br />To write to your .htaccess and robots.txt below, you must set permissions for each file to at least 644. 
 Overwriting your .htaccess can cause problems with your website, so only alter if you know what you're doing.</p>
-
 	]]>
             </comment>
             <fields>
