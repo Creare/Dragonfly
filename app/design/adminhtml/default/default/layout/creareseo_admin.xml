@@ -3,7 +3,7 @@
 	<default>
 		<reference name="head">
 			<action method="addCss" ifconfig="creareseocore/defaultseo/duplicate">
-                            <stylesheet>creareseo/creareseo_admin.css</stylesheet>
+                            <name>creareseo/creareseo-admin.css</name>
                         </action>
 		</reference>
 	</default>
