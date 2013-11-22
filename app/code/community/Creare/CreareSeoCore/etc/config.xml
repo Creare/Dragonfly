@@ -14,6 +14,15 @@
       </updates>
     </layout>
   </adminhtml>
+  <frontend>
+    <layout>
+      <updates>
+        <creareseocore>
+          <file>creareseo.xml</file>
+        </creareseocore>
+      </updates>
+    </layout>
+  </frontend>
   <admin>
     <routers>
       <adminhtml>
@@ -26,11 +35,6 @@
     </routers>
   </admin>
   <global>
-    <blocks>
-      <creareseocore>
-        <class>Creare_CreareSeoCore_Block</class>
-      </creareseocore>
-    </blocks>
     <models>
       <creareseocore>
         <class>Creare_CreareSeoCore_Model</class>
@@ -105,13 +109,22 @@
       <events>
           <admin_system_config_changed_section_creareseocore>
             <observers>
-              <creareseo_filewrite>
-                <type>model</type>
+              <creareseo_writefile>
+                <type>singleton</type>
                 <class>creareseocore/observer</class>
-                <method>writeFile</method>
-              </creareseo_filewrite>
+                <method>writeToFileOnConfigSave</method>
+              </creareseo_writefile>
             </observers>
           </admin_system_config_changed_section_creareseocore>
+          <controller_action_predispatch>
+             <observers>
+              <creareseo_savefileconfig>
+                <type>singleton</type>
+                <class>creareseocore/observer</class>
+                <method>saveConfigOnConfigLoad</method>
+              </creareseo_savefileconfig>
+            </observers>
+          </controller_action_predispatch>
       </events>
   </adminhtml>
 </config>
