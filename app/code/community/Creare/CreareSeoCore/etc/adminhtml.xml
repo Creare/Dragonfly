@@ -43,6 +43,12 @@
                                     <creareseocore>
                                         <title>CreareSEO Core</title>
                                     </creareseocore>
+                                    <crearerobots>
+                                        <title>robots.txt</title>
+                                    </crearerobots>
+                                    <crearehtaccess>
+                                        <title>.htaccess</title>
+                                    </crearehtaccess>
                                 </children>
                             </config>
                         </children>

@@ -22,7 +22,7 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
             try
             {
                 $contents = $io->read($file);
-                Mage::getModel('core/config')->saveConfig('creareseocore/files/'.$field, $contents);
+                Mage::getModel('core/config')->saveConfig('creare'.$field.'/files/'.$field, $contents);
                 
             } catch(Mage_Core_Exception $e)
             {
@@ -40,7 +40,7 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
     
     public function writeFile($file, $post, $field)
     {
-        /*if (Mage::getStoreConfig('creareseocore/files/'.$field) == $post)
+        /*if (Mage::getStoreConfig('creare'.$field.'/files/'.$field) == $post)
         {
             return false;
         }*/
