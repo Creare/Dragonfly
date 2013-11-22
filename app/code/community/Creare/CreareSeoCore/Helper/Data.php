@@ -14,6 +14,8 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
     
     public function saveFileContentToConfig($file, $field)
     {
+        echo "HELLO";
+        die();
         $io = new Varien_Io_File();
         $io->open(array('path' => Mage::getBaseDir()));
         
@@ -28,6 +30,8 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
             {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
             }
+        } else {
+            Mage::getSingleton('adminhtml/session')->addError($file." does not exist");
         }
             
         $io->streamClose();

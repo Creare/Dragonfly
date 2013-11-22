@@ -72,10 +72,13 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
           $helper = Mage::helper('creareseocore');
           $path = $helper->getConfigPath();
           
-          if ($path == 'system_config_creareseocore')
+          if ($path == 'system_config_crearehtaccess')
           {
-             $helper->saveFileContentToConfig($helper->robotstxt(), 'robots');
              $helper->saveFileContentToConfig($helper->htaccess(), 'htaccess');
+          }
+          if ($path == 'system_config_crearerobots')
+          {
+              $helper->saveFileContentToConfig($helper->robots(), 'robots');
           }
         }
 }

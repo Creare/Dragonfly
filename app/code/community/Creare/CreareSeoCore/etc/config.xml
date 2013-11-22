@@ -107,15 +107,24 @@
   </frontend>
   <adminhtml>
       <events>
-          <admin_system_config_changed_section_creareseocore>
+          <admin_system_config_changed_section_crearehtaccess>
             <observers>
-              <creareseo_writefile>
+              <creareseo_writehtaccess>
                 <type>singleton</type>
                 <class>creareseocore/observer</class>
                 <method>writeToFileOnConfigSave</method>
-              </creareseo_writefile>
+              </creareseo_writehtaccess>
             </observers>
-          </admin_system_config_changed_section_creareseocore>
+          </admin_system_config_changed_section_crearehtaccess>
+          <admin_system_config_changed_section_crearerobots>
+            <observers>
+              <creareseo_writerobots>
+                <type>singleton</type>
+                <class>creareseocore/observer</class>
+                <method>writeToFileOnConfigSave</method>
+              </creareseo_writerobots>
+            </observers>
+          </admin_system_config_changed_section_crearerobots>
           <controller_action_predispatch>
              <observers>
               <creareseo_savefileconfig>
