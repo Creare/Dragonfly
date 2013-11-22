@@ -42,13 +42,40 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
                 $category = $observer->getEvent()->getCategory();
 
                 if ($category->getData('creareseo_heading')) {
-                    $category->setName($category->getCreareseoHeading());
+                    $category->setName($category->getCreareseoHeading()); 
                 }
             }
         }
         
-        protected function writeFile($observer)
+        public function writeToFileOnConfigSave($observer)
         {
-            //$this->getRequest()->getPost('config_state')
+            
+           $helper = Mage::helper('creareseocore');
+           $post = Mage::app()->getRequest()->getPost();
+           $robots_post = $post['groups']['files']['fields']['robots']['value'];
+           $htaccess_post = $post['groups']['files']['fields']['htaccess']['value'];
+           
+           if ($robots_post)
+           {
+               //$helper->writeFile($helper->robotstxt(), $robots_post, 'robots');
+           }
+           
+           if ($htaccess_post)
+           {
+               $helper->writeFile($helper->htaccess(), $htaccess_post, 'htaccess');
+           }
+           
+        }
+        
+        public function saveConfigOnConfigLoad($observer)
+        {
+          $helper = Mage::helper('creareseocore');
+          $path = $helper->getConfigPath();
+          
+          if ($path == 'system_config_creareseocore')
+          {
+             $helper->saveFileContentToConfig($helper->robotstxt(), 'robots');
+             $helper->saveFileContentToConfig($helper->htaccess(), 'htaccess');
+          }
         }
 }
