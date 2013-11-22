@@ -45,14 +45,14 @@
             <li class="success-msg"><span>Your default meta description has been edited.</span></li>
 		<?php endif; ?>
                 <?php if(Mage::getStoreConfig('design/head/default_keywords') == "Magento, Varien, E-commerce"): ?>
-            <li class="error-msg"><span>You should changed your default meta description within Design > HTML Head <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/design') ?>">Go to fix it</a></span></li>
+            <li class="error-msg"><span>You should changed your default meta keywords (or clear them) within Design > HTML Head <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/design') ?>">Go to fix it</a></span></li>
 		<?php else: ?>
-            <li class="success-msg"><span>Your default meta description has been edited.</span></li>
+            <li class="success-msg"><span>Your default meta keywords have been edited.</span></li>
 		<?php endif; ?>
                 <?php if(Mage::getStoreConfig('design/head/default_robots') != "INDEX,FOLLOW"): ?>
             <li class="error-msg"><span>Unless you do not want Search Engines full access to your website, we recommend setting your Default Robots to INDEX,FOLLOW <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/design') ?>">Go to fix it</a></span></li>
 		<?php else: ?>
-            <li class="success-msg"><span>Your default meta description has been edited.</span></li>
+            <li class="success-msg"><span>Your website is fully accessible to search engines.</span></li>
 		<?php endif; ?>
 	</ul>
 </div>
