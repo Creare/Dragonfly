@@ -40,20 +40,10 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
     
     public function writeFile($file, $post, $field)
     {
-        if (Mage::getStoreConfig('creareseocore/files/'.$field) == $post)
+        /*if (Mage::getStoreConfig('creareseocore/files/'.$field) == $post)
         {
-            echo "POST:";
-            var_dump($post);
-            echo "<br />";
-            echo "<br />";
-            echo "In DB:";
-            echo "<br />";
-            echo "<br />";
-            var_dump(Mage::getStoreConfig('creareseocore/files/'.$field));
-            
-            die($field." the same");
             return false;
-        }
+        }*/
         
         $io = new Varien_Io_File();
         $io->open(array('path' => Mage::getBaseDir()));
