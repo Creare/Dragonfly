@@ -2,7 +2,7 @@
 	<h3 class="icon-head">Default SEO Check</h3>
 </div>
 
-<p>The default SEO options below are simply <strong>reccommendations for good SEO practice</strong>. There may occur times when the configuration detailed below may not suit your particular store.</p>
+<p>The default SEO options below are simply <strong>recommendations for good SEO practice</strong>. There may occur times when the configuration detailed below may not suit your particular store.</p>
 
 <div class="content-header">
 	<h4>Configuration Settings</h4>
@@ -39,10 +39,20 @@
 
 <div class="entry-edit">
 	<ul class="messages">
-		<?php if(Mage::getStoreConfig('catalog/seo/product_use_categories')): ?>
-		<li class="error-msg"><span>Products should only exist under the canonical tag, please set Search Engine Optimisations > Use Categories Path for Product URLs <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/catalog') ?>">Go to fix it</a></span></li>
+		<?php if(Mage::getStoreConfig('design/head/default_description') == "Default Description"): ?>
+            <li class="error-msg"><span>You should changed your default meta description within Design > HTML Head <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/design') ?>">Go to fix it</a></span></li>
 		<?php else: ?>
-		<li class="success-msg"><span>Product URL's only exist under the canonical tag</span></li>
+            <li class="success-msg"><span>Your default meta description has been edited.</span></li>
+		<?php endif; ?>
+                <?php if(Mage::getStoreConfig('design/head/default_keywords') == "Magento, Varien, E-commerce"): ?>
+            <li class="error-msg"><span>You should changed your default meta description within Design > HTML Head <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/design') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+            <li class="success-msg"><span>Your default meta description has been edited.</span></li>
+		<?php endif; ?>
+                <?php if(Mage::getStoreConfig('design/head/default_robots') != "INDEX,FOLLOW"): ?>
+            <li class="error-msg"><span>Unless you do not want Search Engines full access to your website, we recommend setting your Default Robots to INDEX,FOLLOW <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/design') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+            <li class="success-msg"><span>Your default meta description has been edited.</span></li>
 		<?php endif; ?>
 	</ul>
 </div>
