@@ -6,8 +6,8 @@ if($_product):
 ?>
 <!-- twitter product cards -->
 <meta name="twitter:card" content="product" />
-<meta name="twitter:site" content="@<?php echo Mage::getStoreConfig('creareseo/social/twittersite') ?>" />
-<meta name="twitter:creator" content="@<?php echo Mage::getStoreConfig('creareseo/social/twittercreator') ?>" />
+<meta name="twitter:site" content="@<?php echo Mage::getStoreConfig('creareseocore/social/twittersite') ?>" />
+<meta name="twitter:creator" content="@<?php echo Mage::getStoreConfig('creareseocore/social/twittercreator') ?>" />
 <meta name="twitter:title" content="<?php echo $_product->getName() ?>" />
 <meta name="twitter:description" content="<?php echo $this->htmlEscape($_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description')) ?>" />
 <meta name="twitter:image" content="<?php echo $_product->getImageUrl() ?>" />
