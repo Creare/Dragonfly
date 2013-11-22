@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <layout>
 	<default>
-		<reference name="head">
-			<action method="addCss" ifconfig="creareseocore/defaultseo/duplicate">
-                            <name>creareseo/creareseo-admin.css</name>
-                        </action>
-		</reference>
+            <reference name="head">
+                    <action method="addCss" ifconfig="creareseocore/defaultseo/duplicate">
+                        <name>creareseo/creareseo-admin.css</name>
+                    </action>
+            </reference>
 	</default>
 	<adminhtml_creareseo_check>
-		<reference name="content">
-			<block type="core/template" name="creareseocore.check" template="creareseo/check.phtml" />
-		</reference>
+            <reference name="content">
+                    <block type="core/template" name="creareseocore.check" template="creareseo/check.phtml" />
+            </reference>
 	</adminhtml_creareseo_check>
 </layout>
