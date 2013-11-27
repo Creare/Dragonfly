@@ -35,6 +35,13 @@
     </routers>
   </admin>
   <global>
+      <blocks>
+          <page>
+            <rewrite>
+                    <html_head>Creare_CreareSeoCore_Block_Page_Html_Head</html_head>
+            </rewrite>
+        </page>
+      </blocks>
     <models>
       <creareseocore>
         <class>Creare_CreareSeoCore_Model</class>
