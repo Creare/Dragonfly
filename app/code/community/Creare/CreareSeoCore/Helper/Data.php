@@ -4,12 +4,10 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getDiscontinuedProductUrl($product)
     {
-        $categories = false;
-        $homepage = false;
-        $products = true;
+        $type = $product->getAttributeText('creareseo_discontinued');
 
         // check to see if we want to redirect to a product / category / homepage
-        if($categories){
+        if($type == '301 Redirect to Category'){
             $cats = $product->getCategoryIds();
             if (is_array($cats) && count($cats) > 1) {
                 $cat = Mage::getModel('catalog/category')->load( $cats[0] ); 
@@ -20,13 +18,15 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
             }
         }
 
-        if($homepage){
+        if($type == '301 Redirect to Homepage'){
             return Mage::getBaseUrl();
         }
 
-        if($products){
-            $related = Mage::getModel('catalog/product')->load(165);
-            return $related->getProductUrl();
+        if($type == '301 Redirect to Product'){
+            if($sku = $product->getCreareseoDiscontinuedProduct()){
+                $related = Mage::getModel('catalog/product')->loadByAttribute('sku',$sku);
+                return $related->getProductUrl();
+            }
         }
 
         return false;
