@@ -78,6 +78,13 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
       }
   }
   
+  
+  /* 
+     * On admin_system_config_changed_section_{crearerobots/crearehtaccess}
+     * Takes the file, post data and the configuration field and 
+     * writes the post data to the file.
+  */
+  
   public function writeToFileOnConfigSave($observer)
   {
       
@@ -97,6 +104,12 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
      }
      
   }
+  
+  /* 
+     * On controller_action_predispatch
+     * Takes the file and the configuration field and saves the
+     * current file data to the database before the field is loaded
+  */
   
   public function saveConfigOnConfigLoad($observer)
   {
