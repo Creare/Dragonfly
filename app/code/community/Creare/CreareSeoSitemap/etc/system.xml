@@ -7,7 +7,7 @@
   </tabs>
   <sections>
     <creareseositemap translate="label" module="creareseositemap">
-      <label>Sitemap</label>
+      <label>HTML Sitemap Page</label>
       <tab>crearegroup</tab>
       <sort_order>1000</sort_order>
       <show_in_default>1</show_in_default>
@@ -15,7 +15,7 @@
       <show_in_store>1</show_in_store>
       <groups>
         <sitemap translate="label" module="creareseositemap">
-          <label>Sitemap</label>
+          <label>HTML Sitemap</label>
           <frontend_type>text</frontend_type>
           <sort_order>1000</sort_order>
           <show_in_default>1</show_in_default>

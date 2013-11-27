@@ -10,12 +10,12 @@
                     <action>adminhtml/creareseo/check</action>
                 </defaultseo>
                 <sitemap module="creareseocore">
-                    <title>Sitemap Settings</title>
+                    <title>HTML Sitemap Settings</title>
                     <sort_order>0</sort_order>
                     <action>adminhtml/system_config/edit/section/creareseositemap/</action>
                 </sitemap>
                 <coresettings module="creareseocore">
-                    <title>Core Settings</title>
+                    <title>General Settings</title>
                     <sort_order>0</sort_order>
                     <action>adminhtml/system_config/edit/section/creareseocore/</action>
                 </coresettings>

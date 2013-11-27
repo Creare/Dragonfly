@@ -85,6 +85,15 @@
             </noindex>
           </observers>
         </controller_action_layout_generate_xml_before>
+        <controller_action_noroute>
+          <observers>
+            <creareseo_discontinued>
+              <type>singleton</type>
+              <class>creareseocore/observer</class>
+              <method>discontinuedCheck</method>
+            </creareseo_discontinued>
+          </observers>
+        </controller_action_noroute>
         <http_response_send_before>
           <observers>
             <creareseo_keyword>

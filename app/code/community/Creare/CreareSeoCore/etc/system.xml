@@ -7,7 +7,7 @@
     </tabs>
     <sections>
         <creareseocore translate="label" module="creareseocore">
-            <label>Creare SEO Settings</label>
+            <label>General Settings</label>
             <tab>crearegroup</tab>
             <sort_order>1000</sort_order>
             <show_in_default>1</show_in_default>
