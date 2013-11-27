@@ -169,6 +169,173 @@
                         </twittercreator>
                     </fields>
                 </social>
+                <metadata>
+                    <label>Default Page Titles &amp; Meta Descriptions</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>80</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <comment>
+                        <![CDATA[
+                        <p>By enabling any of the following fields, you will be overwriting the default page
+                            titles and meta descriptions given to the respective pages. If you set a page title or meta
+description directly on your product, then that will be used instead.</p>
+                        ]]>
+                    </comment>
+                    <fields>
+                        <product_title_enabled>
+                            <label>Enable Default Product Title?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_title_enabled>
+                        <product_title>
+                            <label>Default Product Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><product_title_enabled>1</product_title_enabled></depends>
+                            <comment><![CDATA[
+                                <small>[name] = Product Name<br />
+                                [store] = Store Name<br />
+                                [attribute_code] = Attribute Value<br />
+                                <strong>For example: [name] - [store].</strong></small>
+                        ]]></comment>
+                        </product_title>
+                        <product_metadesc_enabled>
+                            <label>Enable Default Product Meta Description?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_metadesc_enabled>
+                        <product_metadesc>
+                            <label>Default Product Meta Description</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><product_metadesc_enabled>1</product_metadesc_enabled></depends>
+                            <comment><![CDATA[
+                                <small>[name] = Product Name<br />
+                                [store] = Store Name<br />
+                                [attribute_code] = Attribute Value<br />
+                                <strong>For example: Buy [name] online from our [store]. See our other [brand] products.</strong></small>
+                        ]]></comment>
+                        </product_metadesc>
+                        <category_title_enabled>
+                            <label>Enable Default Category Title?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_title_enabled>
+                        <category_title>
+                            <label>Default Category Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><category_title_enabled>1</category_title_enabled></depends>
+                            <comment><![CDATA[
+                                <small>[name] = Category Name<br />
+                                [store] = Store Name<br />
+                                <strong>For example: [name] - [store].</strong></small>
+                        ]]></comment>
+                        </category_title>
+                        <category_metadesc_enabled>
+                            <label>Enable Default Category Meta Description?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_metadesc_enabled>
+                        <category_metadesc>
+                            <label>Default Category Meta Description</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><category_metadesc_enabled>1</category_metadesc_enabled></depends>
+                            <comment><![CDATA[
+                                <small>[name] = Category Name<br />
+                                [store] = Store Name<br />
+                                <strong>For example: Browse our [name] products at [store].</strong></small>
+                        ]]></comment>
+                        </category_metadesc>
+                        <cms_metadesc_enabled>
+                            <label>Enable Default CMS Meta Description?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cms_metadesc_enabled>
+                        <cms_metadesc>
+                            <label>Default CMS Meta Description</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><cms_metadesc_enabled>1</cms_metadesc_enabled></depends>
+                            <comment><![CDATA[
+                                <small>[name] = CMS Page Name<br />
+                                [store] = Store Name</small>
+                        ]]></comment>
+                        </cms_metadesc>
+                        <contacts_title_enabled>
+                            <label>Enable Default Contacts Title?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </contacts_title_enabled>
+                        <contacts_title>
+                            <label>Default Contacts Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><contacts_title_enabled>1</contacts_title_enabled></depends>
+                        </contacts_title>
+                        <contacts_metadesc_enabled>
+                            <label>Enable Default Contacts Meta Description?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </contacts_metadesc_enabled>
+                        <contacts_metadesc>
+                            <label>Default Contacts Meta Description</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><contacts_metadesc_enabled>1</contacts_metadesc_enabled></depends>
+                        </contacts_metadesc>
+                    </fields>
+                </metadata>
             </groups>
         </creareseocore>
         <crearehtaccess>
