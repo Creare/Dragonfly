@@ -88,7 +88,7 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
      
      if ($robots_post)
      {
-         //$helper->writeFile($helper->robotstxt(), $robots_post, 'robots');
+         $helper->writeFile($helper->robotstxt(), $robots_post, 'robots');
      }
      
      if ($htaccess_post)
@@ -102,14 +102,13 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
   {
     $helper = Mage::helper('creareseocore');
     $path = $helper->getConfigPath();
-    
     if ($path == 'system_config_crearehtaccess')
     {
-       $helper->saveFileContentToConfig($helper->htaccess(), 'htaccess');
+        $helper->saveFileContentToConfig($helper->htaccess(), 'htaccess');
     }
     if ($path == 'system_config_crearerobots')
     {
-        $helper->saveFileContentToConfig($helper->robots(), 'robots');
+        $helper->saveFileContentToConfig($helper->robotstxt(), 'robots');
     }
   }
 }

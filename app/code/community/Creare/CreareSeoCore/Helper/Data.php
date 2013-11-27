@@ -40,14 +40,12 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
     
     
     /* 
-     * Takes the file and the configuration field and saves the
-     * current file data to the database before the field is loaded
+     * On controller_action_predispatch called by saveConfigOnConfigLoad()
      */
     
     public function saveFileContentToConfig($file, $field)
     {
-        echo "HELLO";
-        die();
+        $adminsession = Mage::getSingleton('adminhtml/session');
         $io = new Varien_Io_File();
         $io->open(array('path' => Mage::getBaseDir()));
         
@@ -60,41 +58,46 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
                 
             } catch(Mage_Core_Exception $e)
             {
-                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                $adminsession->addError($e->getMessage());
             }
         } else {
-            Mage::getSingleton('adminhtml/session')->addError($file." does not exist");
+            $adminsession->addError($file." does not exist. Please create this file on your domain root to use this feature.");
         }
             
         $io->streamClose();
     }
     
     /* 
-     * Takes the file, post data and the configuration field and 
-     * writes the post data to the file.
+     * On admin_system_config_changed_section_ called by writeToFileOnConfigSave()
      */
     
     public function writeFile($file, $post, $field)
     {
-        /*if (Mage::getStoreConfig('creare'.$field.'/files/'.$field) == $post)
-        {
-            return false;
-        }*/
-        
+        $adminsession = Mage::getSingleton('adminhtml/session');
         $io = new Varien_Io_File();
         $io->open(array('path' => Mage::getBaseDir()));
         
-        if ($io->fileExists($file) && $io->isWriteable($file))
+        if ($io->fileExists($file))
         {
-            try
+            if ($io->isWriteable($file))
             {
-                $io->streamOpen($file);
-                $io->streamWrite($post);
-                
-            } catch(Mage_Core_Exception $e)
-            {
-                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                try
+                {
+                    $io->streamOpen($file);
+                    $io->streamWrite($post);
+
+                } catch(Mage_Core_Exception $e)
+                {
+                    $adminsession->addError($e->getMessage());
+                }
+            } else {
+            
+                $adminsession->addError($file." is not writable. Change permissions to 644 to use this feature.");
+            
             }
+        } else {
+            
+            $adminsession->addError($file." does not exist. The file was not saved.");
         }
             
         $io->streamClose();
