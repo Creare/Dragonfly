@@ -20,12 +20,17 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
 
         if($type == '301 Redirect to Homepage'){
             return Mage::getBaseUrl();
-        }
+        }   
 
         if($type == '301 Redirect to Product'){
             if($sku = $product->getCreareseoDiscontinuedProduct()){
-                $related = Mage::getModel('catalog/product')->loadByAttribute('sku',$sku);
-                return $related->getProductUrl();
+                $collection = Mage::getModel('catalog/product')->getCollection()
+                                                               ->addAttributeToSelect('sku')
+                                                               ->addFieldToFilter('sku',$sku);
+                if(count($collection) > 0){
+                    $related = Mage::getModel('catalog/product')->loadByAttribute('sku',$sku);
+                    return $related->getProductUrl();
+                }
             }
         }
 

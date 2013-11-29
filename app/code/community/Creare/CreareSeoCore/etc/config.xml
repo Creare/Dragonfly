@@ -123,6 +123,14 @@
   </frontend>
   <adminhtml>
       <events>
+          <catalog_product_prepare_save>
+              <observers>
+                  <processcheck>
+                      <class>creareseocore/observer</class>
+                      <method>productCheck</method>
+                  </processcheck>
+              </observers>
+          </catalog_product_prepare_save>
           <admin_system_config_changed_section_crearehtaccess>
             <observers>
               <creareseo_writehtaccess>

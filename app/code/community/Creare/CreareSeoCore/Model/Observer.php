@@ -124,4 +124,22 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract
         $helper->saveFileContentToConfig($helper->robotstxt(), 'robots');
     }
   }
+
+  public function productCheck(Varien_Event_Observer $observer)
+    {
+      $product = $observer->getEvent()->getProduct();
+      $back = $observer->getEvent()->getRequest()->getOriginalPathInfo();
+      $collection = Mage::getModel('catalog/product')->getCollection()
+                               ->addAttributeToSelect('name')
+                               ->addAttributeToFilter('name',$product->getName())
+                               ->addAttributeToFilter('sku',array('neq' => $product->getSku()));
+
+      if($collection->count() > 0){
+        Mage::getSingleton('core/session')->addError("Products already exist with the name ".$product->getName()." - product not saved");
+        Mage::app()->getFrontController()->getResponse()->setRedirect($back);
+        Mage::app()->getResponse()->sendResponse();
+        exit;
+      }
+
+    }
 }
