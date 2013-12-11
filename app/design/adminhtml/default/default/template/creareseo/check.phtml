@@ -5,7 +5,51 @@
 <p>The default SEO options below are simply <strong>recommendations for good SEO practice</strong>. There may occur times when the configuration detailed below may not suit your particular store.</p>
 
 <div class="content-header">
-	<h4>Configuration Settings</h4>
+	<h4>Creare SEO Settings</h4>
+</div>
+
+<div class="entry-edit">
+	<ul class="messages">
+		<?php if(!Mage::getStoreConfig('creareseocore/defaultseo/metakw')): ?>
+		<li class="error-msg"><span>You should remove the meta keywords tag and any blank meta description <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/creareseocore') ?>">Go fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Meta Keywords and blank Meta Descriptions have been removed</span></li>
+		<?php endif; ?>
+		<?php if(!Mage::getStoreConfig('creareseocore/defaultseo/noindexparams')): ?>
+		<li class="error-msg"><span>You should 'noindex' parameter-based category pages <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/creareseocore') ?>">Go fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Parameter-based category pages have 'noindex' set in robots</span></li>
+		<?php endif; ?>
+		<?php if(!Mage::getStoreConfig('creareseocore/defaultseo/category_h1')): ?>
+		<li class="error-msg"><span>Enabling Category H1 headings will allow you to specify a separate category page heading <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/creareseocore') ?>">Go fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>You have the option to specify unique category headings</span></li>
+		<?php endif; ?>
+		<?php if(!Mage::getStoreConfig('creareseocore/defaultseo/forcecanonical')): ?>
+		<li class="error-msg"><span>It is recommended to redirect product URLs to the root canonical link <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/creareseocore') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Product URL's are 301 redirected to the canonical URL</span></li>
+		<?php endif; ?>
+                <?php if(!Mage::getStoreConfig('creareseocore/social/enabled')): ?>
+		<li class="error-msg"><span>It is recommended to activate social Twitter card integration <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/creareseocore') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Social Twitter Cards are enabled</span></li>
+		<?php endif; ?>
+                <?php if(!Mage::getStoreConfig('creareseocore/metadata/product_metadesc_enabled') && !Mage::getStoreConfig('creareseocore/metadata/product_title_enabled')): ?>
+		<li class="error-msg"><span>You should enter your default Product Meta Title &amp; Description Fallback <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/creareseocore') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Default Meta fallbacks for Products have been configured</span></li>
+		<?php endif; ?>
+                <?php if(!Mage::getStoreConfig('creareseocore/metadata/category_title_enabled') && !Mage::getStoreConfig('creareseocore/metadata/category_metadesc_enabled')): ?>
+		<li class="error-msg"><span>You should enter your default Categories Meta Title &amp; Description Fallback <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/creareseocore') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+		<li class="success-msg"><span>Default Meta fallbacks for Categories have been configured</span></li>
+		<?php endif; ?>
+	</ul>
+</div>
+
+<div class="content-header">
+	<h4>Magento Configuration Settings</h4>
 </div>
 
 <div class="entry-edit">
