@@ -19,22 +19,22 @@ class Creare_CreareSeoCore_Helper_Meta extends Mage_Core_Helper_Abstract
         
         if (Mage::registry('current_product'))
         {
-            $registry->code = 'product';
-            $registry->model = Mage::registry('current_product');
+            $registry->_code = 'product';
+            $registry->_model = Mage::registry('current_product');
             
             return $registry;
             
         } elseif (Mage::registry('current_category'))
         {
-            $registry->code = 'category';
-            $registry->model = Mage::registry('current_category');
+            $registry->_code = 'category';
+            $registry->_model = Mage::registry('current_category');
             
             return $registry;
             
-        } elseif (Mage::registry('current_cms_page'))
+        } elseif (Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms')
         {
-            $registry->code = 'cms_page';
-            $registry->model = Mage::registry('current_cms_page');
+            $registry->_code = 'cms';
+            $registry->_model = Mage::getSingleton('cms/page');
             
             return $registry;
             
@@ -64,14 +64,18 @@ class Creare_CreareSeoCore_Helper_Meta extends Mage_Core_Helper_Abstract
                     $string = str_replace($matches[0][$i], Mage::app()->getStore()->getName(), $string);
                 } else {
                 
-                switch ($pagetype->code)
+                switch ($pagetype->_code)
                 {
                     case 'product' :
-                        $attribute = $this->productAttribute(Mage::registry('current_product'), $tag);
+                        $attribute = $this->productAttribute($pagetype->_model, $tag);
                     break;
                 
                     case 'category' :
-                        $attribute = $this->attribute(Mage::registry('current_category'), $tag);
+                        $attribute = $this->attribute($pagetype->_model, $tag);
+                    break;
+                
+                    case 'cms' :
+                        $attribute = $this->attribute($pagetype->_model, $tag);
                     break;
                 
                 }

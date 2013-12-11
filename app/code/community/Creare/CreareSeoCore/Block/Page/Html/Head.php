@@ -8,9 +8,9 @@ class Creare_CreareSeoCore_Block_Page_Html_Head extends Mage_Page_Block_Html_Hea
         
         if ($pagetype && $pagetype != 'cms_page')
         {
-            if (!$pagetype->model->getMetaTitle())
+            if (!$pagetype->_model->getMetaTitle())
             {
-                $this->setConfigTitle($pagetype->code);
+                $this->setConfigTitle($pagetype->_code);
             }
         }
         
@@ -44,9 +44,9 @@ class Creare_CreareSeoCore_Block_Page_Html_Head extends Mage_Page_Block_Html_Hea
         
         if ($pagetype)
         {
-            if (!$pagetype->model->getMetaDescription())
+            if (!$pagetype->_model->getMetaDescription())
             {
-                $this->setConfigMetaDescription($pagetype->code);
+                $this->setConfigMetaDescription($pagetype->_code);
             }
         }
         
