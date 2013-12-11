@@ -1,39 +1,59 @@
 <?php
 class Creare_CreareSeoCore_Helper_Meta extends Mage_Core_Helper_Abstract
 {
-    public function getDefaultTitle()
+    public function getDefaultTitle($pagetype)
     {
-        if ($this->getPageType())
-        {
-            $title = $this->config($this->getPageType().'_title');
-            return $this->shortcodeString($title);
-        }
+        $title = $this->config($pagetype.'_title');
+        return $this->shortcode($title);
+    }
+    
+    public function getDefaultMetaDescription($pagetype)
+    {
+        $metadesc = $this->config($pagetype.'_metadesc');
+        return $this->shortcode($metadesc);
     }
     
     public function getPageType()
     {
+        $registry = new Varien_Object;
+        
         if (Mage::registry('current_product'))
         {
-            return 'product';
+            $registry->code = 'product';
+            $registry->model = Mage::registry('current_product');
+            
+            return $registry;
+            
         } elseif (Mage::registry('current_category'))
         {
-            return 'category';
+            $registry->code = 'category';
+            $registry->model = Mage::registry('current_category');
+            
+            return $registry;
+            
         } elseif (Mage::registry('current_cms_page'))
         {
-            return 'cms_page';
+            $registry->code = 'cms_page';
+            $registry->model = Mage::registry('current_cms_page');
+            
+            return $registry;
+            
         } else {
             return false;
+            
         }
     }
     
-    private function config($path)
+    public function config($path)
     {
         return Mage::getStoreConfig('creareseocore/metadata/'.$path);
     }
     
-     function shortcodeString($string)
-     {
-            preg_match_all("/\[(.*?)\]/", $string, $matches);
+    public function shortcode($string)
+    {
+        $pagetype = $this->getPageType();
+        
+        preg_match_all("/\[(.*?)\]/", $string, $matches);
 
             for($i = 0; $i < count($matches[1]); $i++)
             {
@@ -44,7 +64,7 @@ class Creare_CreareSeoCore_Helper_Meta extends Mage_Core_Helper_Abstract
                     $string = str_replace($matches[0][$i], Mage::app()->getStore()->getName(), $string);
                 } else {
                 
-                switch ($this->getPageType())
+                switch ($pagetype->code)
                 {
                     case 'product' :
                         $attribute = $this->productAttribute(Mage::registry('current_product'), $tag);
@@ -62,7 +82,7 @@ class Creare_CreareSeoCore_Helper_Meta extends Mage_Core_Helper_Abstract
             return $string;
      }
      
-     function productAttribute($product, $attribute)
+     public function productAttribute($product, $attribute)
      {
          if ($product->getData($attribute))
          {
@@ -71,14 +91,11 @@ class Creare_CreareSeoCore_Helper_Meta extends Mage_Core_Helper_Abstract
 
      }
      
-     function attribute($model, $attribute)
+     public function attribute($model, $attribute)
      {
          if ($model->getData($attribute))
          {
-             
-             
-            return $product->getResource()->getAttribute($attribute)->getFrontend()->getValue($product);
+            return $model->getData($attribute);
          }
-
      }
 }
