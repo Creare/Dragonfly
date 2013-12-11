@@ -39,6 +39,7 @@
             <page>
                 <rewrite>
                     <html_head>Creare_CreareSeoCore_Block_Page_Html_Head</html_head>
+                    <html_breadcrumbs>Creare_CreareSeoCore_Block_Page_Html_Breadcrumbs</html_breadcrumbs>
                 </rewrite>
             </page>
         </blocks>
