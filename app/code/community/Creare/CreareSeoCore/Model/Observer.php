@@ -141,5 +141,22 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
             }
         }
     }
+    
+    public function contactsMetaData(Varien_Event_Observer $observer)
+    {
+        if ($observer->getEvent()->getAction()->getRequest()->getRouteName() == "contacts")
+        {
+            if (Mage::helper('creareseocore/meta')->config('contacts_title'))
+            {
+                $observer->getEvent()->getLayout()->getBlock('head')->setTitle(Mage::helper('creareseocore/meta')->config('contacts_title'));
+            }
+            
+            if (Mage::helper('creareseocore/meta')->config('contacts_metadesc'))
+            {
+                $observer->getEvent()->getLayout()->getBlock('head')->setDescription(Mage::helper('creareseocore/meta')->config('contacts_metadesc'));
+            }
+        }
+            
+    }
 
 }

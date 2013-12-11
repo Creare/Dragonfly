@@ -304,19 +304,10 @@ description directly on your product, then that will be used instead.</p>
                             <depends><cms_metadesc_enabled>1</cms_metadesc_enabled></depends>
                             <comment><![CDATA[
                                 <small>[title] = CMS Page Name<br />
-                                [store] = Store Name</small>
+                                [store] = Store Name</small><br />
                                 <strong>For example: [title] - [store].</strong></small>
                         ]]></comment>
                         </cms_metadesc>
-                        <contacts_title_enabled>
-                            <label>Enable Default Contacts Title?</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>11</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </contacts_title_enabled>
                         <contacts_title>
                             <label>Default Contacts Title</label>
                             <frontend_type>text</frontend_type>
@@ -324,17 +315,7 @@ description directly on your product, then that will be used instead.</p>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <depends><contacts_title_enabled>1</contacts_title_enabled></depends>
                         </contacts_title>
-                        <contacts_metadesc_enabled>
-                            <label>Enable Default Contacts Meta Description?</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>13</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </contacts_metadesc_enabled>
                         <contacts_metadesc>
                             <label>Default Contacts Meta Description</label>
                             <frontend_type>textarea</frontend_type>
@@ -342,7 +323,6 @@ description directly on your product, then that will be used instead.</p>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <depends><contacts_metadesc_enabled>1</contacts_metadesc_enabled></depends>
                         </contacts_metadesc>
                     </fields>
                 </metadata>

@@ -129,6 +129,15 @@
                     </creareseo_heading>
                 </observers>
             </catalog_category_load_after>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <creareseo_contactsmeta>
+                        <type>model</type>
+                        <class>creareseocore/observer</class>
+                        <method>contactsMetaData</method>
+                    </creareseo_contactsmeta>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
         </events>
     </frontend>
     <adminhtml>
