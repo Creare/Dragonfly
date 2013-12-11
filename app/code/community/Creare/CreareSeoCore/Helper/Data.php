@@ -117,4 +117,37 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return '.htaccess';
     }
+    
+    public function checkDefaultStoreNames()
+    {
+        $stores = Mage::getModel('core/store')->getCollection();
+        foreach($stores as $store){
+            if($store->getName() == "Default Store View"){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public function checkDefaultStoreGroupNames()
+    {
+        $storegroups = Mage::getModel('core/store_group')->getCollection();
+        foreach($storegroups as $storegroup){
+            if($storegroup->getName() == "Main Store"){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public function checkDefaultWebsiteNames()
+    {
+        $websites = Mage::getModel('core/website')->getCollection();
+        foreach($websites as $website){
+            if($website->getName() == "Main Website"){
+                return false;
+            }
+        }
+        return true;
+    }
 }

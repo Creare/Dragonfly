@@ -54,5 +54,20 @@
 		<?php else: ?>
             <li class="success-msg"><span>Your website is fully accessible to search engines.</span></li>
 		<?php endif; ?>
+                <?php if(!Mage::helper('creareseocore')->checkDefaultStoreNames()): ?>
+            <li class="error-msg"><span>You should change your store name from 'Default Store View' <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_store') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+            <li class="success-msg"><span>Your store view name has been customized.</span></li>
+		<?php endif; ?>
+                <?php if(!Mage::helper('creareseocore')->checkDefaultStoreGroupNames()): ?>
+            <li class="error-msg"><span>You should change your store group name from 'Main Store' <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_store') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+            <li class="success-msg"><span>Your store group view name has been customized.</span></li>
+		<?php endif; ?>
+                <?php if(!Mage::helper('creareseocore')->checkDefaultWebsiteNames()): ?>
+            <li class="error-msg"><span>You should change your store name from 'Main Website' <a href="<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/system_store') ?>">Go to fix it</a></span></li>
+		<?php else: ?>
+            <li class="success-msg"><span>Your website name has been customized.</span></li>
+		<?php endif; ?>
 	</ul>
 </div>
