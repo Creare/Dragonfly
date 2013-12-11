@@ -132,12 +132,15 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
     
     public function forceProductCanonical(Varien_Event_Observer $observer)
     {
-        if (Mage::getStoreConfig('creareseocore/defaultseo/forcecanonical')) {
-            $product = $observer->getEvent()->getProduct();
-            $url = $product->getUrlModel()->getUrl($product, array('_ignore_category'=>true));
-            if(Mage::helper('core/url')->getCurrentUrl() != $url){
-                Mage::app()->getFrontController()->getResponse()->setRedirect($url,301);
-                Mage::app()->getResponse()->sendResponse();
+        if (Mage::getStoreConfig('catalog/seo/product_canonical_tag'))
+        {
+            if (Mage::getStoreConfig('creareseocore/defaultseo/forcecanonical')) {
+                $product = $observer->getEvent()->getProduct();
+                $url = $product->getUrlModel()->getUrl($product, array('_ignore_category'=>true));
+                if(Mage::helper('core/url')->getCurrentUrl() != $url){
+                    Mage::app()->getFrontController()->getResponse()->setRedirect($url,301);
+                    Mage::app()->getResponse()->sendResponse();
+                }
             }
         }
     }
