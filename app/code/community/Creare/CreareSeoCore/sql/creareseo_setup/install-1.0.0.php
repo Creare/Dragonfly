@@ -17,7 +17,7 @@ $installer->addAttribute($entityTypeId, 'creareseo_heading', array(
 	'global'        => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE
 	));
 
-$installer->updateAttribute($entityTypeId, 'meta_title', array(
+/*$installer->updateAttribute($entityTypeId, 'meta_title', array(
     'group' => 'Creare SEO'
 ));
 $installer->updateAttribute($entityTypeId, 'meta_description', array(
@@ -29,5 +29,13 @@ $installer->updateAttribute($entityTypeId, 'meta_keywords', array(
 $installer->updateAttribute($entityTypeId, 'url_key', array(
     'group' => 'Creare SEO'
 ));
+
+$installer->addAttributeToGroup($entityTypeId, $attributeSetId, array('group' => 'Creare SEO'), 'meta_title');
+
+$installer->addAttributeToGroup($entityTypeId, $attributeSetId, array('group' => 'Creare SEO'), 'meta_description');
+
+$installer->addAttributeToGroup($entityTypeId, $attributeSetId, array('group' => 'Creare SEO'), 'meta_keywords');
+
+$installer->addAttributeToGroup($entityTypeId, $attributeSetId, array('group' => 'Creare SEO'), 'url_key'); */
 
 $installer->endSetup();

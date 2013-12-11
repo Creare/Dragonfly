@@ -43,6 +43,7 @@
       <showxml>0</showxml>
       <showaccount>1</showaccount>
       <showcontact>1</showcontact>
+      <fullwidth>0</fullwidth>
     </sitemap>
   </creareseositemap>
  </default>

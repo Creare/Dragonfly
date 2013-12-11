@@ -179,4 +179,36 @@
             </controller_action_predispatch>
         </events>
     </adminhtml>
+    <default>
+        <creareseocore>
+            <defaultseo>
+                <metakw>1</metakw>
+                <noindexparams>1</noindexparams>
+                <duplicate>0</duplicate>
+                <category_h1>1</category_h1>
+                <forcecanonical>1</forcecanonical>
+            </defaultseo>
+            <cleanup>
+                <active>1</active>
+                <logdb>1</logdb>
+                <cachefolder>0</cachefolder>
+                <enablecache>1</enablecache>
+            </cleanup>
+            <social>
+                <enabled>1</enabled>
+            </social>
+            <metadata>
+                <product_title_enabled>0</product_title_enabled>
+                <product_title>[name] - [store]</product_title>
+                <product_metadesc_enabled>0</product_metadesc_enabled>
+                <product_metadesc>[name], [store]</product_metadesc>
+                <category_title_enabled>0</category_title_enabled>
+                <category_title>[name] - [store]</category_title>
+                <category_metadesc_enabled>0</category_metadesc_enabled>
+                <category_metadesc>[name], [store]</category_metadesc>
+                <cms_metadesc_enabled>0</cms_metadesc_enabled>
+                <cms_metadesc>[title] - [store]</cms_metadesc>
+            </metadata>
+        </creareseocore>
+    </default>
 </config>
