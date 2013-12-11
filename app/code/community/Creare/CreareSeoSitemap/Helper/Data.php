@@ -26,4 +26,9 @@ class Creare_CreareSeoSitemap_Helper_Data extends Mage_Core_Helper_Abstract
 	{
 		return Mage::getStoreConfig('creareseositemap/sitemap/showcontact');
 	}
+        
+        public function fullWidth()
+	{
+		return Mage::getStoreConfig('creareseositemap/sitemap/fullwidth');
+	}
 }
