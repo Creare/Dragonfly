@@ -339,7 +339,7 @@ description directly on your product, then that will be used instead.</p>
                     <frontend_type>text</frontend_type>
                     <sort_order>10</sort_order>
                     <show_in_default>1</show_in_default>
-                    <comment><![CDATA[<strong>IMPORTANT!</strong><p>To write to your .htaccess, you must set permissions to at least 644. 
+                    <comment><![CDATA[<strong>IMPORTANT!</strong><p>To write to your .htaccess, you must set permissions to at least 664. 
 Overwriting your .htaccess can cause problems with your website, so only alter if you know what you're doing.</p>]]></comment>
                     <fields>
                         <htaccess translate="label">
@@ -364,7 +364,7 @@ Overwriting your .htaccess can cause problems with your website, so only alter i
                     <frontend_type>text</frontend_type>
                     <sort_order>10</sort_order>
                     <show_in_default>1</show_in_default>
-                    <comment><![CDATA[<strong>IMPORTANT!</strong><p>To write to your robots.txt, you must set permissions to at least 644.</p>]]></comment>
+                    <comment><![CDATA[<strong>IMPORTANT!</strong><p>To write to your robots.txt, you must set permissions to at least 664.</p>]]></comment>
                     <fields>
                         <robots translate="label">
                             <label>robots.txt</label>
