@@ -132,7 +132,7 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
     
     public function forceProductCanonical(Varien_Event_Observer $observer)
     {
-        if (!Mage::getStoreConfig('catalog/seo/product_canonical_tag'))
+        if (Mage::getStoreConfig('catalog/seo/product_canonical_tag') && !Mage::getStoreConfig('product_use_categories'))
         {
             if (Mage::getStoreConfig('creareseocore/defaultseo/forcecanonical')) {
                 $product = $observer->getEvent()->getProduct();
