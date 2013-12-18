@@ -23,7 +23,8 @@
           <show_in_store>1</show_in_store>
           <comment>
               <![CDATA[
-                <p>The Creare SEO extension automatically creates an HTML site map page which lists your key category, CMS and customer account pages. The is available at domain.co.uk/sitemap.</p>
+                <p>The Creare SEO extension automatically creates an HTML site map page which lists your key category, CMS and customer account pages.</p>
+                <p>The sitemap is available at domain.co.uk/sitemap.</p>
               ]]>
           </comment>
           <fields>
