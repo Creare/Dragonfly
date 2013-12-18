@@ -7,23 +7,23 @@ class Creare_CreareSeoCore_Model_Cleanup extends Mage_Core_Model_Abstract
 	
 	public function docleanup()
 	{	
-		if(Mage::getStoreConfig('creareseo/cleanup/cachefolder')){
+		if(Mage::getStoreConfig('creareseocore/cleanup/cachefolder')){
 			$this->cleanVar();
 			$this->cleanCache();
 		}
 		
-		if(Mage::getStoreConfig('creareseo/cleanup/logdb')){
+		if(Mage::getStoreConfig('creareseocore/cleanup/logdb')){
 			$this->cleanDb();
 		}
 		
-		if(Mage::getStoreConfig('creareseo/cleanup/enablecache')){
+		if(Mage::getStoreConfig('creareseocore/cleanup/enablecache')){
 			$this->enableCache();
 		}
 		
 		if(count($this->errors) > 0){
 			$this->sendEmail();
 		} else {
-			Mage::getConfig()->saveConfig('creareseo/cleanup/success', date('Y-m-d, H:i:s'));
+			Mage::getConfig()->saveConfig('creareseocore/cleanup/success', date('Y-m-d, H:i:s'));
 			Mage::getConfig()->reinit();
 			Mage::app()->reinitStores();	
 		}
@@ -32,14 +32,17 @@ class Creare_CreareSeoCore_Model_Cleanup extends Mage_Core_Model_Abstract
 	
 	private function enableCache()
 	{
-		$db = Mage::getSingleton('core/resource')->getConnection('write');
-		$sql = $db->query('SELECT * FROM core_cache_option WHERE value = 0');
-		$results = $sql->fetchAll();
-		if($results){
-			foreach($results as $result){
-				$db->query('UPDATE core_cache_option SET value = 1 WHERE code = "'.$result['code'].'"');
-			}
-		}
+            $model = Mage::getModel('core/cache');
+            $options = $model->canUse();
+
+            foreach($options as $option=>$value) {
+                    if ($options[$option] != 1)
+                    {
+                            $options[$option] = 1;
+                    }
+            }
+
+            $model->saveOptions($options);
 	}
 	
 	private function cleanDb()
@@ -69,16 +72,16 @@ class Creare_CreareSeoCore_Model_Cleanup extends Mage_Core_Model_Abstract
 	
 	private function cleanCache()
 	{
-		$dir = Mage::getBaseDir()."/var/cache/";
-		if(is_dir($dir)){
-			$this->removeContents($dir);
-		}
+            $dir = Mage::getBaseDir()."/var/cache/";
+            if(is_dir($dir)){
+                    $this->removeContents($dir);
+            }
 	}
 	
 	private function cleanVar()
 	{	
-		$dir = Mage::getBaseDir().'/var/session/';	
-		$this->removeSessionContents($dir);
+            $dir = Mage::getBaseDir().'/var/session/';	
+            $this->removeSessionContents($dir);
 	}
 	
 	private function removeContents($dir)
@@ -149,7 +152,7 @@ class Creare_CreareSeoCore_Model_Cleanup extends Mage_Core_Model_Abstract
 
 	private function sendEmail()
 	{
-		if($email = Mage::getStoreConfig('cleanup/settings/problems')):
+		if($email = Mage::getStoreConfig('creareseocore/cleanup/problems')):
 		
 			$content = "";
 			
