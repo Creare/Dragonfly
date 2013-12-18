@@ -6,6 +6,7 @@ if($_product):
 ?>
 <!-- twitter product cards -->
 <meta name="twitter:card" content="product" />
+<meta name="twitter:domain" content="<?php echo Mage::getBaseUrl() ?>" />
 <meta name="twitter:site" content="@<?php echo Mage::getStoreConfig('creareseocore/social/twittersite') ?>" />
 <meta name="twitter:creator" content="@<?php echo Mage::getStoreConfig('creareseocore/social/twittercreator') ?>" />
 <meta name="twitter:title" content="<?php echo $_product->getName() ?>" />
