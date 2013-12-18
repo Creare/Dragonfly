@@ -108,6 +108,20 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
         $io->streamClose();
     }
     
+    public function isWriteable($file)
+    {
+        $io = new Varien_Io_File();
+        $io->open(array('path' => Mage::getBaseDir()));
+        return $io->isWriteable($file);
+    }
+    
+    public function exists($file)
+    {
+        $io = new Varien_Io_File();
+        $io->open(array('path' => Mage::getBaseDir()));
+        return $io->fileExists($file);
+    }
+    
     public function robotstxt()
     {
         return 'robots.txt';
