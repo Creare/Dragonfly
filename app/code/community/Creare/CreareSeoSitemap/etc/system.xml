@@ -22,10 +22,12 @@
           <show_in_website>1</show_in_website>
           <show_in_store>1</show_in_store>
           <comment>
-              <![CDATA[<p>The Creare SEO extension automatically creates an HTML site map page which lists your key category, CMS and customer account pages. The is available at domain.co.uk/sitemap]]></p>
+              <![CDATA[
+                <p>The Creare SEO extension automatically creates an HTML site map page which lists your key category, CMS and customer account pages. The is available at domain.co.uk/sitemap.</p>
+              ]]>
           </comment>
           <fields>
-		  	     <showcms translate="label">
+            <showcms translate="label">
               <label>Show CMS Pages</label>
               <frontend_type>select</frontend_type>
               <source_model>adminhtml/system_config_source_yesno</source_model>
