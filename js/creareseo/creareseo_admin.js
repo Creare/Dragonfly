@@ -25,7 +25,7 @@ document.observe("dom:loaded", function() {
 	}
 
 	$('creareseo_discontinued').observe("change", function(e){
-		if($('creareseo_discontinued')[$('creareseo_discontinued').selectedIndex].text == "301 Redirect to Product"){
+		if($('creareseo_discontinued')[$('creareseo_discontinued').selectedIndex].text == "301 Redirect to Product SKU"){
 			$('creareseo_discontinued_product').up(1).show();
 		} else {
 			$('creareseo_discontinued_product').up(1).hide();
