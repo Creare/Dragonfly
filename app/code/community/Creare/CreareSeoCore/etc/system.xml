@@ -79,7 +79,7 @@
                     <comment>
             <![CDATA[
 			<p>The Creare Cleanup script will automatically remove any files / database entries that are not required by your ecommerce store but which build up over time and cause your website to lose performance.</p>
-			<p>This includes database logging tables and your cache folders.</p>
+			<p>This includes database logging tables and your cache folders (depending on folder permissions).</p>
 			<p>If you enable this feature it will clean every night at midnight.</p>
 			<p><strong>Please ensure that your Magento cron is setup using the curl method (/usr/bin/curl http://www.mydomain.co.uk/cron.php) - to bypass safe_mode restrictions.</strong></p>
 			]]>
@@ -104,7 +104,7 @@
                             <show_in_store>1</show_in_store>
                         </logdb>
                         <cachefolder translate="label">
-                            <label>Clean Cache Folder?</label>
+                            <label>Clean Cache &amp; Session Folder?</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>30</sort_order>
