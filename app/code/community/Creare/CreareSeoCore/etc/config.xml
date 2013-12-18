@@ -195,7 +195,7 @@
                 <enablecache>1</enablecache>
             </cleanup>
             <social>
-                <enabled>1</enabled>
+                <enabled>0</enabled>
             </social>
             <metadata>
                 <product_title_enabled>0</product_title_enabled>
