@@ -32,7 +32,7 @@
                             <show_in_store>1</show_in_store>
                         </metakw>
                         <noindexparams translate="label">
-                            <label>No Index Category Filters?</label>
+                            <label>Apply NOINDEX Meta Tag to filtered category pages</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>20</sort_order>
@@ -50,7 +50,7 @@
                             <show_in_store>1</show_in_store>
                         </duplicate>
                         <category_h1 translate="label">
-                            <label>Enable Category H1 Rewrites?</label>
+                            <label>Enable Unique Category Heading field</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>40</sort_order>
@@ -59,7 +59,7 @@
                             <show_in_store>1</show_in_store>
                         </category_h1>
                         <forcecanonical translate="label">
-                            <label>Force Product Canonical URL?</label>
+                            <label>Enable Canonical Product Redirecting</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>50</sort_order>
@@ -70,7 +70,7 @@
                     </fields>
                 </defaultseo>
                 <cleanup translate="label" module="creareseocore">
-                    <label>Cleanup Settings</label>
+                    <label>Performance Cleanup</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>20</sort_order>
                     <show_in_default>1</show_in_default>
@@ -78,10 +78,9 @@
                     <show_in_store>1</show_in_store>
                     <comment>
             <![CDATA[
-			<p>The Creare Cleanup script will automatically remove any files / database entries that are not required by your ecommerce store but which build up over time and cause your website to lose performance.</p>
-			<p>This includes database logging tables and your cache folders (depending on folder permissions).</p>
-			<p>If you enable this feature it will clean every night at midnight.</p>
-			<p><strong>Please ensure that your Magento cron is setup using the curl method (/usr/bin/curl http://www.mydomain.co.uk/cron.php) - to bypass safe_mode restrictions.</strong></p>
+			<p>This performance cleanup script will automatically remove any files / database entries that are not required by your ecommerce store but which build up over time and cause your website to lose performance.</p>
+			<p>Recommended settings are to enable 'Clean Log entries in DB' and 'Auto enable cache' (to enable Magento cache if accidentally left disabled).</p>
+                        <p>These settings work on a CRON for more information please visit <a href="http://www.creare.co.uk/setting-up-a-cron-job-for-magento" target="_blank">setting up a cron job for Magento</a>.</p>
 			]]>
                     </comment>
                     <fields>
@@ -152,7 +151,7 @@
                     </comment>
                     <fields>
                         <enabled>
-                            <label>Show Social Schema?</label>
+                            <label>Enable Twitter Cards & OG Tags?</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>10</sort_order>
@@ -185,9 +184,7 @@
                     <show_in_default>1</show_in_default>
                     <comment>
                         <![CDATA[
-                        <p>By enabling any of the following fields, you will be overwriting the default page
-                            titles and meta descriptions given to the respective pages. If you set a page title or meta
-description directly on your product, then that will be used instead.</p>
+                        <p>Enabling the 'Default Page Titles and Meta Descriptions’ feature will dynamically create unique Page Titles and Meta Descriptions for your Category and Product pages. If you subsequently define Page Titles or Meta Descriptions </p>
                         ]]>
                     </comment>
                     <fields>
@@ -349,7 +346,7 @@ Overwriting your .htaccess can cause problems with your website, so only alter i
                             <frontend_type>textarea</frontend_type>
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
-                             <comment> <![CDATA[Download our latest optimised <a href="https://github.com/Creare/magento-htaccess" target="_blank">.htaccess</a>]]></comment>
+                             <comment> <![CDATA[Download our latest optimised <a href="https://github.com/Creare/magento-htaccess/blob/master/.htaccess" target="_blank">.htaccess file</a>]]></comment>
                         </htaccess>
                     </fields>
                 </files>
@@ -373,7 +370,7 @@ Overwriting your .htaccess can cause problems with your website, so only alter i
                             <frontend_type>textarea</frontend_type>
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
-                            <comment> <![CDATA[Download our latest optimised <a href="https://github.com/Creare/magento-robots" target="_blank">robots.txt</a>]]></comment>
+                            <comment> <![CDATA[Download our latest optimised <a href="https://github.com/Creare/magento-robots/blob/master/robots.txt" target="_blank">robots.txt file</a>]]></comment>
                         </robots>
                     </fields>
                 </files>
