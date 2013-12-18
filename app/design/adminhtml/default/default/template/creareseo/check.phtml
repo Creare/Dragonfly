@@ -51,20 +51,20 @@
             <?php if ($_helper->isWriteable($_helper->robotstxt())): ?>
                 <li class="success-msg"><span>Your <?php echo $_helper->robotstxt() ?> file exists and is writable.</span></li>
             <?php else : ?>
-                <li class="error-msg"><span>Your <?php echo $_helper->robotstxt() ?> needs to be writable to edit through the config. Set permissions to 664</span></li>
+                <li class="error-msg"><span>Your <?php echo $_helper->robotstxt() ?> file needs to be writable to be editable through the configuration Set permissions to 664 to use this feature.</span></li>
             <?php endif ?>
         <?php else : ?>
-            <li class="error-msg"><span>Unable to find <?php echo $_helper->robotstxt() ?> at: <?php echo Mage::getBaseDir() ?></span></li>
+            <li class="error-msg"><span>Unable to find <?php echo $_helper->robotstxt() ?> file in: <?php echo Mage::getBaseDir() ?></span></li>
         <?php endif ?>
         <?php if ($_helper->exists($_helper->htaccess())): ?>
 
             <?php if ($_helper->isWriteable($_helper->htaccess())): ?>
                 <li class="success-msg"><span>Your <?php echo $_helper->htaccess() ?> file exists and is writable.</span></li>
             <?php else : ?>
-                <li class="error-msg"><span>Your <?php echo $_helper->htaccess() ?> needs to be writable to edit through the config. Set permissions to 664</span></li>
+                <li class="error-msg"><span>Your <?php echo $_helper->htaccess() ?>  file needs to be writable to be editable through the configuration Set permissions to 664 to use this feature.</span></li>
             <?php endif ?>
         <?php else : ?>
-            <li class="error-msg"><span>Unable to find <?php echo $_helper->htaccess() ?> at: <?php echo Mage::getBaseDir() ?></span></li>
+            <li class="error-msg"><span>Unable to find <?php echo $_helper->htaccess() ?> file in: <?php echo Mage::getBaseDir() ?></span></li>
         <?php endif ?>
     </ul>
 </div>
