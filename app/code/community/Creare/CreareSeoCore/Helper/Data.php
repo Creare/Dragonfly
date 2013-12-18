@@ -38,7 +38,7 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
 
     }
 
-    public function getConfigPath($observer)
+    public function getConfigPath()
     {
         return Mage::app()->getRequest()->getControllerName().'_'.Mage::app()->getRequest()->getParam('section');
     }
