@@ -147,7 +147,7 @@
                     <show_in_default>1</show_in_default>
                     <comment>
 				<![CDATA[
-				<p>Enable or disable twitter product cards and open graph schema.</p>
+				<p>Enable or disable twitter product cards and open graph schema. Location will be taken from Shipping Settings > Origin.</p>
 				]]>
                     </comment>
                     <fields>

@@ -12,8 +12,9 @@ if($_product):
 <meta name="twitter:description" content="<?php echo $this->htmlEscape($_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description')) ?>" />
 <meta name="twitter:image" content="<?php echo $_product->getImageUrl() ?>" />
 <meta name="twitter:data1" content="<?php echo $currency ?><?php echo number_format($_product->getFinalPrice(),2) ?>" />
-<meta name="twitter:label1" content="Price" />
-
+<meta name="twitter:label1" content="PRICE" />
+<meta name="twitter:data2" content="<?php echo Mage::getStoreConfig('shipping/origin/country_id') ?>" />
+<meta name="twitter:label2" content="LOCATION" />
 <!-- open graph for facebook / other networks -->
 <meta property="og:site_name" content="<?php echo Mage::app()->getStore()->getName(); ?>" />
 <meta property="og:type" content="og:product" />
