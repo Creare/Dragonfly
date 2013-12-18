@@ -203,9 +203,9 @@
                 <product_metadesc_enabled>0</product_metadesc_enabled>
                 <product_metadesc>[name], [store]</product_metadesc>
                 <category_title_enabled>0</category_title_enabled>
-                <category_title>[name] - [store]</category_title>
+                <category_title>[original_name] - [store]</category_title>
                 <category_metadesc_enabled>0</category_metadesc_enabled>
-                <category_metadesc>[name], [store]</category_metadesc>
+                <category_metadesc>[original_name] [store]</category_metadesc>
                 <cms_metadesc_enabled>0</cms_metadesc_enabled>
                 <cms_metadesc>[title] - [store]</cms_metadesc>
             </metadata>
