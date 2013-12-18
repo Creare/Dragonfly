@@ -258,6 +258,7 @@ description directly on your product, then that will be used instead.</p>
                             <depends><category_title_enabled>1</category_title_enabled></depends>
                             <comment><![CDATA[
                                 <small>[name] = Category Name<br />
+                                [original_name] = Original Category Name (if category heading rewrites is enabled)<br />
                                 [store] = Store Name<br />
                                 <strong>For example: [name] - [store].</strong></small>
                         ]]></comment>
