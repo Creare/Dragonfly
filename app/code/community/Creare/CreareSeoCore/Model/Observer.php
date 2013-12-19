@@ -120,18 +120,34 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
     }
 
     public function productCheck(Varien_Event_Observer $observer) {
-        $product = $observer->getEvent()->getProduct();
-        $back = $observer->getEvent()->getRequest()->getOriginalPathInfo();
-        $collection = Mage::getModel('catalog/product')->getCollection()
-                ->addAttributeToSelect('name')
-                ->addAttributeToFilter('name', $product->getName())
-                ->addAttributeToFilter('sku', array('neq' => $product->getSku()));
-
-        if ($collection->count() > 0) {
-            Mage::getSingleton('core/session')->addError("Products already exist with the name " . $product->getName() . " - product not saved");
-            Mage::app()->getFrontController()->getResponse()->setRedirect($back);
-            Mage::app()->getResponse()->sendResponse();
-            exit;
+        if(Mage::app()->getRequest()->getControllerName() == "catalog_product" && Mage::app()->getRequest()->getActionName() == "validate"){
+            $attributeId = Mage::getResourceModel('eav/entity_attribute')->getIdByCode('catalog_product','name');
+            if ($attributeId) {
+                $attribute = Mage::getModel('catalog/resource_eav_attribute')->load($attributeId);
+                if(Mage::getStoreConfig('creareseocore/validate/name')){
+                    $attribute->setIsUnique(1)->save();
+                } else {
+                    $attribute->setIsUnique(0)->save();
+                }
+            }
+            $attributeId = Mage::getResourceModel('eav/entity_attribute')->getIdByCode('catalog_product','description');
+            if ($attributeId) {
+                $attribute = Mage::getModel('catalog/resource_eav_attribute')->load($attributeId);
+                if(Mage::getStoreConfig('creareseocore/validate/description')){
+                    $attribute->setIsUnique(1)->save();
+                } else {
+                    $attribute->setIsUnique(0)->save();
+                }
+            }
+            $attributeId = Mage::getResourceModel('eav/entity_attribute')->getIdByCode('catalog_product','short_description');
+            if ($attributeId) {
+                $attribute = Mage::getModel('catalog/resource_eav_attribute')->load($attributeId);
+                if(Mage::getStoreConfig('creareseocore/validate/short_description')){
+                    $attribute->setIsUnique(1)->save();
+                } else {
+                    $attribute->setIsUnique(0)->save();
+                }
+            }
         }
     }
     
