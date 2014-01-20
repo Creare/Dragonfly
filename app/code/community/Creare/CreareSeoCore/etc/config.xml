@@ -97,7 +97,7 @@
             <controller_action_layout_generate_xml_before>
                 <observers>
                     <noindex>
-                        <type>singleton</type>
+                        <type>model</type>
                         <class>creareseocore/observer</class>
                         <method>changeRobots</method>
                     </noindex>
@@ -106,7 +106,7 @@
             <controller_action_noroute>
                 <observers>
                     <creareseo_discontinued>
-                        <type>singleton</type>
+                        <type>model</type>
                         <class>creareseocore/observer</class>
                         <method>discontinuedCheck</method>
                     </creareseo_discontinued>
@@ -115,7 +115,7 @@
             <http_response_send_before>
                 <observers>
                     <creareseo_keyword>
-                        <type>singleton</type>
+                        <type>model</type>
                         <class>creareseocore/observer</class>
                         <method>applyTag</method>
                     </creareseo_keyword>
@@ -124,7 +124,7 @@
             <catalog_controller_product_view>
                 <observers>
                     <creareseo_forcecanonical>
-                        <type>singleton</type>
+                        <type>model</type>
                         <class>creareseocore/observer</class>
                         <method>forceProductCanonical</method>
                     </creareseo_forcecanonical>
@@ -155,7 +155,7 @@
            <admin_system_config_changed_section_crearehtaccess>
                 <observers>
                     <creareseo_writehtaccess>
-                        <type>singleton</type>
+                        <type>model</type>
                         <class>creareseocore/observer</class>
                         <method>writeToFileOnConfigSave</method>
                     </creareseo_writehtaccess>
@@ -164,7 +164,7 @@
             <admin_system_config_changed_section_crearerobots>
                 <observers>
                     <creareseo_writerobots>
-                        <type>singleton</type>
+                        <type>model</type>
                         <class>creareseocore/observer</class>
                         <method>writeToFileOnConfigSave</method>
                     </creareseo_writerobots>
@@ -173,11 +173,12 @@
             <controller_action_predispatch>
                 <observers>
                     <creareseo_savefileconfig>
-                        <type>singleton</type>
+                        <type>model</type>
                         <class>creareseocore/observer</class>
                         <method>saveConfigOnConfigLoad</method>
                     </creareseo_savefileconfig>
                      <processcheck>
+                        <type>model</type>
                         <class>creareseocore/observer</class>
                         <method>productCheck</method>
                     </processcheck>
