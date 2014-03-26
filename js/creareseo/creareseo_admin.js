@@ -11,9 +11,11 @@ document.observe("dom:loaded", function() {
 	$('status').observe("change", function(e){
 		if($('status')[$('status').selectedIndex].value == 1){
 			$('creareseo_discontinued').up(1).hide();
+			$('creareseo_discontinued').selectedIndex = 0;
 			$('creareseo_discontinued_product').up(1).hide();
 		} else {
 			$('creareseo_discontinued').up(1).show();
+			$('creareseo_discontinued').selectedIndex = 1;
 			$('creareseo_discontinued_product').up(1).show();
 		}
 	});

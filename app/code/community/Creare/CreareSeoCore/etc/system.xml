@@ -186,6 +186,8 @@
                     <frontend_type>text</frontend_type>
                     <sort_order>20</sort_order>
                     <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
                     <comment>
 				<![CDATA[
 				<p>Enable or disable twitter product cards and open graph schema. Location will be taken from Shipping Settings > Origin.</p>
@@ -224,6 +226,8 @@
                     <frontend_type>text</frontend_type>
                     <sort_order>80</sort_order>
                     <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
                     <comment>
                         <![CDATA[
                         <p>Enabling the 'Default Page Titles and Meta Descriptions’ feature will dynamically create unique Page Titles and Meta Descriptions for your Category and Product pages. If you subsequently define Page Titles or Meta Descriptions </p>

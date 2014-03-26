@@ -38,6 +38,20 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
 
     }
 
+    public function getDiscontinuedCategoryUrl($category){
+        if($category->getLevel() == 2){
+            if(!$category->getIsActive()){
+                return Mage::getBaseUrl();
+            } else {
+                return Mage::getBaseUrl().$category->getUrlPath();
+            }
+        } else {
+            $parentCategory = Mage::getModel('catalog/category')->load($category->getParentId());
+            return $this->getDiscontinuedCategoryUrl($parentCategory);
+        }
+
+    }
+
     public function getConfigPath()
     {
         return Mage::app()->getRequest()->getControllerName().'_'.Mage::app()->getRequest()->getParam('section');

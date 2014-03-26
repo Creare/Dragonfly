@@ -33,9 +33,11 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
                 }
             }
             if ($data->getControllerName() == "category") {
-                $url = Mage::helper('creareseocore')->getDiscontinuedCategoryUrl($id);
+                $id = $data->getParam('id');
+                $category = Mage::getModel('catalog/category')->load($id);
+                $url = Mage::helper('creareseocore')->getDiscontinuedCategoryUrl($category);
                 if ($url) {
-                    Mage::getSingleton('core/session')->addError('Unfortunately this category has been discontinued');
+                    Mage::getSingleton('core/session')->addError('Unfortunately the category "'.$category->getName().'" has been discontinued');
                     Mage::app()->getFrontController()->getResponse()->setRedirect($url, 301);
                     Mage::app()->getResponse()->sendResponse();
                     exit;
