@@ -1,36 +1,43 @@
 <config>
     <menu>
-        <creareseo module="creareseocore">
-            <title>Creare SEO</title>
-            <sort_order>71</sort_order>               
+        <system translate="title" module="adminhtml">
+            <title>System</title>
+            <sort_order>90</sort_order>
+            <!-- action>adminhtml/system</action -->
             <children>
-                <defaultseo module="creareseocore">
-                    <title>Default SEO Check</title>
-                    <sort_order>0</sort_order>
-                    <action>adminhtml/creareseo/check</action>
-                </defaultseo>
-                <sitemap module="creareseocore">
-                    <title>HTML Sitemap Page</title>
-                    <sort_order>1</sort_order>
-                    <action>adminhtml/system_config/edit/section/creareseositemap/</action>
-                </sitemap>
-                <coresettings module="creareseocore">
-                    <title>General Settings</title>
-                    <sort_order>2</sort_order>
-                    <action>adminhtml/system_config/edit/section/creareseocore/</action>
-                </coresettings>
-                <htaccess module="creareseocore">
-                    <title>Edit .htaccess</title>
-                    <sort_order>3</sort_order>
-                    <action>adminhtml/system_config/edit/section/crearehtaccess/</action>
-                </htaccess>
-                <robots module="creareseocore">
-                    <title>Edit robots.txt</title>
-                    <sort_order>4</sort_order>
-                    <action>adminhtml/system_config/edit/section/crearerobots/</action>
-                </robots>
+                <creareseo module="creareseocore">
+                    <title>Creare SEO</title>
+                    <sort_order>0</sort_order>               
+                    <children>
+                        <defaultseo module="creareseocore">
+                            <title>Default SEO Check</title>
+                            <sort_order>0</sort_order>
+                            <action>adminhtml/creareseo/check</action>
+                        </defaultseo>
+                        <sitemap module="creareseocore">
+                            <title>HTML Sitemap Page</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/system_config/edit/section/creareseositemap/</action>
+                        </sitemap>
+                        <coresettings module="creareseocore">
+                            <title>General Settings</title>
+                            <sort_order>2</sort_order>
+                            <action>adminhtml/system_config/edit/section/creareseocore/</action>
+                        </coresettings>
+                        <htaccess module="creareseocore">
+                            <title>Edit .htaccess</title>
+                            <sort_order>3</sort_order>
+                            <action>adminhtml/system_config/edit/section/crearehtaccess/</action>
+                        </htaccess>
+                        <robots module="creareseocore">
+                            <title>Edit robots.txt</title>
+                            <sort_order>4</sort_order>
+                            <action>adminhtml/system_config/edit/section/crearerobots/</action>
+                        </robots>
+                    </children>
+                </creareseo>
             </children>
-        </creareseo>
+        </system>
     </menu>
     <acl>
         <resources>
@@ -39,15 +46,16 @@
             </all>
             <admin>
                 <children>
-                    <creareseo>
-                        <children>
-                            <defaultseo>
-                                <title>CreareSEO - Default SEO Check</title>
-                            </defaultseo>
-                        </children>
-                    </creareseo>
                     <system>
                         <children>
+                            <creareseo>
+                                <title>CreareSEO</title>
+                                <children>
+                                    <defaultseo>
+                                        <title>CreareSEO - Default SEO Check</title>
+                                    </defaultseo>
+                                </children>
+                            </creareseo>
                             <config>
                                 <children>
                                     <creareseocore>

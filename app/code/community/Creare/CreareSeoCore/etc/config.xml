@@ -48,7 +48,6 @@
         <blocks>
             <page>
                 <rewrite>
-                    <html_head>Creare_CreareSeoCore_Block_Page_Html_Head</html_head>
                     <html_breadcrumbs>Creare_CreareSeoCore_Block_Page_Html_Breadcrumbs</html_breadcrumbs>
                 </rewrite>
             </page>
@@ -101,6 +100,11 @@
                         <class>creareseocore/observer</class>
                         <method>changeRobots</method>
                     </noindex>
+                    <forcehptitle>
+                        <type>singleton</type>
+                        <class>creareseocore/observer</class>
+                        <method>forceHomepageTitle</method>
+                    </forcehptitle>
                 </observers>
             </controller_action_layout_generate_xml_before>
             <controller_action_noroute>
@@ -146,6 +150,16 @@
                         <class>creareseocore/observer</class>
                         <method>contactsMetaData</method>
                     </creareseo_contactsmeta>
+                    <settitle>
+                        <type>singleton</type>
+                        <class>creareseocore/observer</class>
+                        <method>setTitle</method>
+                    </settitle>
+                    <setdescription>
+                        <type>singleton</type>
+                        <class>creareseocore/observer</class>
+                        <method>setDescription</method>
+                    </setdescription>
                 </observers>
             </controller_action_layout_generate_blocks_after>
         </events>
@@ -191,9 +205,12 @@
             <defaultseo>
                 <metakw>1</metakw>
                 <noindexparams>1</noindexparams>
+                <noindexparamssearch>1</noindexparamssearch>
+                <noindexparamsgallery>1</noindexparamsgallery>
                 <duplicate>0</duplicate>
                 <category_h1>1</category_h1>
                 <forcecanonical>1</forcecanonical>
+                <forcehptitle>1</forcehptitle>
             </defaultseo>
             <cleanup>
                 <active>1</active>

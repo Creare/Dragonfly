@@ -10,12 +10,42 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
                 if (stristr($uri, "?")):
                     $layout = $observer->getEvent()->getLayout();
                     $product_info = $layout->getBlock('head');
-                    $layout->getUpdate()->addUpdate('<reference name="head"><action method="setRobots"><value>noindex,follow</value></action></reference>');
+                    $layout->getUpdate()->addUpdate('<reference name="head"><action method="setRobots"><value>NOINDEX,FOLLOW</value></action></reference>');
                     $layout->generateXml();
                 endif;
             }
         }
+        if (Mage::getStoreConfig('creareseocore/defaultseo/noindexparamssearch')) {
+            if ($observer->getEvent()->getAction()->getFullActionName() == 'catalogsearch_result_index') {
+                $layout = $observer->getEvent()->getLayout();
+                $product_info = $layout->getBlock('head');
+                $layout->getUpdate()->addUpdate('<reference name="head"><action method="setRobots"><value>NOINDEX,FOLLOW</value></action></reference>');
+                $layout->generateXml();
+            }
+        }
+        if (Mage::getStoreConfig('creareseocore/defaultseo/noindexparamsgallery')) {
+            if ($observer->getEvent()->getAction()->getFullActionName() == 'catalog_product_gallery') {
+                $layout = $observer->getEvent()->getLayout();
+                $product_info = $layout->getBlock('head');
+                $layout->getUpdate()->addUpdate('<reference name="head"><action method="setRobots"><value>NOINDEX,FOLLOW</value></action></reference>');
+                $layout->generateXml();
+            }
+        }
         return $this;
+    }
+    
+    public function forceHomepageTitle($observer)
+    {
+        if (Mage::getStoreConfig('creareseocore/defaultseo/forcehptitle')) {
+            if($observer->getEvent()->getAction()->getFullActionName() == "cms_index_index"){
+                $layout = $observer->getEvent()->getLayout();
+                $homepage = Mage::getStoreConfig('web/default/cms_home_page');
+                $title = Mage::getModel('cms/page')->load($homepage, 'identifier')->getTitle();
+                $product_info = $layout->getBlock('head');
+                $layout->getUpdate()->addUpdate('<reference name="head"><action method="setData"><key>title</key><value>'.$title.'</value></action></reference>');
+                $layout->generateXml();
+            }
+        }
     }
 
     public function discontinuedCheck($observer) {
@@ -158,6 +188,8 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
         if (Mage::getStoreConfig('catalog/seo/product_canonical_tag') && !Mage::getStoreConfig('product_use_categories'))
         {
             if (Mage::getStoreConfig('creareseocore/defaultseo/forcecanonical')) {
+                // check for normal catalog/product/view controller here
+                if(!stristr("catalog",Mage::app()->getRequest()->getModuleName()) && Mage::app()->getRequest()->getControllerName() != "product") return;
                 $product = $observer->getEvent()->getProduct();
                 $url = $product->getUrlModel()->getUrl($product, array('_ignore_category'=>true));
                 if(Mage::helper('core/url')->getCurrentUrl() != $url){
@@ -183,6 +215,82 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
             }
         }
             
+    }
+    
+    public function setTitle($observer)
+    {
+        $layout = $observer->getEvent()->getLayout();
+        $title = $this->getTitle();
+        $product_info = $layout->getBlock('head');
+        $product_info->setData('title',$title);
+        $layout->generateXml();
+    }
+    
+    public function setDescription($observer)
+    {
+        $layout = $observer->getEvent()->getLayout();
+        $description = $this->getDescription();
+        $product_info = $layout->getBlock('head');
+        $product_info->setData('description',$description);
+        $layout->generateXml();
+    }
+    
+    public function getTitle()
+    {
+        $pagetype = $this->metaHelper()->getPageType();
+        if ($pagetype && $pagetype != 'cms_page')
+        {
+            if (!$pagetype->_model->getMetaTitle())
+            {
+                $this->_data['title'] = $this->setConfigTitle($pagetype->_code);
+            }
+        }
+        
+        if (empty($this->_data['title'])) {
+            $this->_data['title'] = $this->getDefaultTitle();
+        }
+        
+        return htmlspecialchars(html_entity_decode(trim($this->_data['title']), ENT_QUOTES, 'UTF-8'));
+    }
+    
+    public function setConfigTitle($pagetype)
+    {
+        if ($this->metaHelper()->config($pagetype.'_title_enabled'))
+        {
+            return $this->metaHelper()->getDefaultTitle($pagetype);
+        }
+    }
+    
+    public function setConfigMetaDescription($pagetype)
+    {
+        if ($this->metaHelper()->config($pagetype.'_metadesc_enabled'))
+        {
+            return $this->metaHelper()->getDefaultMetaDescription($pagetype);
+        }
+    }
+    
+    
+    public function getDescription()
+    {
+        $pagetype = $this->metaHelper()->getPageType();
+        
+        if ($pagetype)
+        {
+            if (!$pagetype->_model->getMetaDescription())
+            {
+                $this->_data['description'] = $this->setConfigMetaDescription($pagetype->_code);
+            }
+        }
+        
+        if (empty($this->_data['description'])) {
+            $this->_data['description'] = "";
+        }
+        return $this->_data['description'];
+    }
+    
+    public function metaHelper()
+    {
+        return Mage::helper('creareseocore/meta');
     }
 
 }
