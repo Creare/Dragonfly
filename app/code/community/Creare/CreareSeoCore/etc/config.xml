@@ -45,13 +45,6 @@
                 </name>
             </catalog_product>
         </eav_attributes>
-        <blocks>
-            <page>
-                <rewrite>
-                    <html_breadcrumbs>Creare_CreareSeoCore_Block_Page_Html_Breadcrumbs</html_breadcrumbs>
-                </rewrite>
-            </page>
-        </blocks>
         <models>
             <creareseocore>
                 <class>Creare_CreareSeoCore_Model</class>
