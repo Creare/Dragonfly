@@ -221,21 +221,21 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
     public function setTitle($observer)
     {
         if (Mage::getStoreConfig('creareseocore/defaultseo/forcehptitle') && $observer->getEvent()->getAction()->getFullActionName() == "cms_index_index") return;
-		if ($observer->getEvent()->getAction()->getFullActionName() == "contacts_index_index") return;
+	if ($observer->getEvent()->getAction()->getFullActionName() == "contacts_index_index") return;
             $layout = $observer->getEvent()->getLayout();
             $title = $this->getTitle();
-            $product_info = $layout->getBlock('head');
-            $product_info->setTitle($title);
+            $head = $layout->getBlock('head');
+            $head->setTitle($title);
             $layout->generateXml();
     }
     
     public function setDescription($observer)
     {
-		if ($observer->getEvent()->getAction()->getFullActionName() == "contacts_index_index") return;
+	if ($observer->getEvent()->getAction()->getFullActionName() == "contacts_index_index") return;
         $layout = $observer->getEvent()->getLayout();
         $description = $this->getDescription();
-        $product_info = $layout->getBlock('head');
-        $product_info->setDescription($description);
+        $head = $layout->getBlock('head');
+        $head->setDescription($description);
         $layout->generateXml();
     }
 	
