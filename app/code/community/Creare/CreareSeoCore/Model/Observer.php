@@ -33,20 +33,6 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
         }
         return $this;
     }
-    
-    public function forceHomepageTitle($observer)
-    {
-        if (Mage::getStoreConfig('creareseocore/defaultseo/forcehptitle')) {
-            if($observer->getEvent()->getAction()->getFullActionName() == "cms_index_index"){
-                $layout = $observer->getEvent()->getLayout();
-                $homepage = Mage::getStoreConfig('web/default/cms_home_page');
-                $title = Mage::getModel('cms/page')->load($homepage, 'identifier')->getTitle();
-                $product_info = $layout->getBlock('head');
-                $layout->getUpdate()->addUpdate('<reference name="head"><action method="setData"><key>title</key><value>'.$title.'</value></action></reference>');
-                $layout->generateXml();
-            }
-        }
-    }
 
     public function discontinuedCheck($observer) {
         $data = $observer->getEvent()->getAction()->getRequest();
@@ -217,38 +203,73 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
             
     }
     
+    public function forceHomepageTitle($observer)
+    {
+        if (Mage::getStoreConfig('creareseocore/defaultseo/forcehptitle')) {
+            if($observer->getEvent()->getAction()->getFullActionName() == "cms_index_index"){
+                $layout = $observer->getEvent()->getLayout();
+                $homepage = Mage::getStoreConfig('web/default/cms_home_page');
+                $title = Mage::getModel('cms/page')->load($homepage, 'identifier')->getTitle();
+                if($title){
+                    $product_info = $layout->getBlock('head');
+                    $product_info->setData('title',$title);
+                }
+            }
+        }
+    }
+    
     public function setTitle($observer)
     {
-        $layout = $observer->getEvent()->getLayout();
-        $title = $this->getTitle();
-        $product_info = $layout->getBlock('head');
-        $product_info->setData('title',$title);
-        $layout->generateXml();
+        if (Mage::getStoreConfig('creareseocore/defaultseo/forcehptitle') && $observer->getEvent()->getAction()->getFullActionName() == "cms_index_index") return;
+		if ($observer->getEvent()->getAction()->getFullActionName() == "contacts_index_index") return;
+            $layout = $observer->getEvent()->getLayout();
+            $title = $this->getTitle();
+            $product_info = $layout->getBlock('head');
+            $product_info->setTitle($title);
+            $layout->generateXml();
     }
     
     public function setDescription($observer)
     {
+		if ($observer->getEvent()->getAction()->getFullActionName() == "contacts_index_index") return;
         $layout = $observer->getEvent()->getLayout();
         $description = $this->getDescription();
         $product_info = $layout->getBlock('head');
-        $product_info->setData('description',$description);
+        $product_info->setDescription($description);
         $layout->generateXml();
+    }
+	
+	public function getDefaultTitle()
+    {
+        return Mage::getStoreConfig('design/head/default_title');
     }
     
     public function getTitle()
     {
-        $pagetype = $this->metaHelper()->getPageType();
-        if ($pagetype && $pagetype != 'cms_page')
+        $pagetype = $this->metaHelper()->getPageType();	
+        if ($pagetype && $pagetype->_code != "cms")
         {
             if (!$pagetype->_model->getMetaTitle())
             {
                 $this->_data['title'] = $this->setConfigTitle($pagetype->_code);
+            } else {
+                $this->_data['title'] = $pagetype->_model->getMetaTitle();
             }
+        } else if($pagetype->_code == "cms"){
+            $this->_data['title'] = $pagetype->_model->getTitle();
         }
         
         if (empty($this->_data['title'])) {
-            $this->_data['title'] = $this->getDefaultTitle();
+			
+			// check if it's a category or product and default to name.
+			if($pagetype->_code == "category" || $pagetype->_code == "product"){
+            	$this->_data['title'] = $pagetype->_model->getName();
+			} else {
+            	$this->_data['title'] = $this->getDefaultTitle();
+			}
         }
+		
+		
         
         return htmlspecialchars(html_entity_decode(trim($this->_data['title']), ENT_QUOTES, 'UTF-8'));
     }
@@ -279,6 +300,8 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
             if (!$pagetype->_model->getMetaDescription())
             {
                 $this->_data['description'] = $this->setConfigMetaDescription($pagetype->_code);
+            } else {
+                $this->_data['description'] = $pagetype->_model->getMetaDescription();
             }
         }
         
