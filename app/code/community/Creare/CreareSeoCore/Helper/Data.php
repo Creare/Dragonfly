@@ -23,7 +23,7 @@ class Creare_CreareSeoCore_Helper_Data extends Mage_Core_Helper_Abstract
         }   
 
         if($type == '301 Redirect to Product SKU'){
-            if($sku = $product->getCreareseoDiscontinuedProduct()){
+            if($sku == $product->getCreareseoDiscontinuedProduct()){
                 $collection = Mage::getModel('catalog/product')->getCollection()
                                                                ->addAttributeToSelect('sku')
                                                                ->addFieldToFilter('sku',$sku);

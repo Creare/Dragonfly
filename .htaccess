@@ -1,7 +1,7 @@
 RewriteEngine On
 #RewriteCond %{QUERY_STRING} (^|&)(.*))(&|$)
-RewriteRule ^product/(.+)\.html$ /$1.html? [L,R=301]
-Redirect 301 /thisproduct.html http://localhost:8888/newproduct.html
+#RewriteRule ^product/(.+)\.html$ /$1.html? [L,R=301]
+#Redirect 301 /thisproduct.html http://localhost:8888/newproduct.html
 
 #SetEnv MAGE_IS_DEVELOPER_MODE 0
 #SetEnv MAGE_RUN_CODE german

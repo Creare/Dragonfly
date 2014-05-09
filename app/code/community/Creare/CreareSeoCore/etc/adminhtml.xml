@@ -5,31 +5,31 @@
             <sort_order>90</sort_order>
             <!-- action>adminhtml/system</action -->
             <children>
-                <creareseo module="creareseocore">
+                <creareseo>
                     <title>Creare SEO</title>
                     <sort_order>0</sort_order>               
                     <children>
-                        <defaultseo module="creareseocore">
+                        <defaultseo>
                             <title>Default SEO Check</title>
                             <sort_order>0</sort_order>
                             <action>adminhtml/creareseo/check</action>
                         </defaultseo>
-                        <sitemap module="creareseocore">
+                        <sitemap>
                             <title>HTML Sitemap Page</title>
                             <sort_order>1</sort_order>
                             <action>adminhtml/system_config/edit/section/creareseositemap/</action>
                         </sitemap>
-                        <coresettings module="creareseocore">
+                        <coresettings>
                             <title>General Settings</title>
                             <sort_order>2</sort_order>
                             <action>adminhtml/system_config/edit/section/creareseocore/</action>
                         </coresettings>
-                        <htaccess module="creareseocore">
+                        <htaccess>
                             <title>Edit .htaccess</title>
                             <sort_order>3</sort_order>
                             <action>adminhtml/system_config/edit/section/crearehtaccess/</action>
                         </htaccess>
-                        <robots module="creareseocore">
+                        <robots>
                             <title>Edit robots.txt</title>
                             <sort_order>4</sort_order>
                             <action>adminhtml/system_config/edit/section/crearerobots/</action>
