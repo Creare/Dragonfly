@@ -211,9 +211,9 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
                 $homepage = Mage::getStoreConfig('web/default/cms_home_page');
                 $title = Mage::getModel('cms/page')->load($homepage, 'identifier')->getTitle();
                 if($title){
-                    if ($product_info = $layout->getBlock('head'))
+                    if ($head = $layout->getBlock('head'))
                     {
-                        $product_info->setData('title',$title);
+                        $head->setData('title',$title);
                     }
                 }
             }
