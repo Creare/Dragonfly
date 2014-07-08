@@ -226,8 +226,14 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
 	if ($observer->getEvent()->getAction()->getFullActionName() == "contacts_index_index") return;
             $layout = $observer->getEvent()->getLayout();
             $title = $this->getTitle();
-            $head = $layout->getBlock('head');
-            $head->setTitle($title);
+            if($title)
+            {
+                if ($head = $layout->getBlock('head'))
+                {
+                    $head->setTitle($title);
+                }
+            }
+            
             $layout->generateXml();
     }
     
@@ -236,8 +242,14 @@ class Creare_CreareSeoCore_Model_Observer extends Mage_Core_Model_Abstract {
 	if ($observer->getEvent()->getAction()->getFullActionName() == "contacts_index_index") return;
         $layout = $observer->getEvent()->getLayout();
         $description = $this->getDescription();
-        $head = $layout->getBlock('head');
-        $head->setDescription($description);
+        if($description)
+        {
+            if ($head = $layout->getBlock('head'))
+            {
+                $head->setDescription($description);
+            }
+        }
+            
         $layout->generateXml();
     }
 	
